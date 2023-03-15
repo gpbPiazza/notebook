@@ -1,7 +1,5 @@
 # DDD - Domain Driven Design
 
-
-
 ###  Putting the Domain Model to Work
 
 -  A model is a simplification of reality. It is an interpretation of reality that abstracts the aspects relevant to solving the problem at hand and ignores extraneous detail
@@ -17,4 +15,16 @@
 
 ### Two. Communication and the Use of Language
 
-- 
+- Ubiquitous Language! A project where we don't have the Ubiquitous Language present the developers have to translate what the specialist of domain are saying to others developers, the developers have to translate what they have into domain today to the specialists, all this translation only make miss understanding of what the domain should be, all this translation makes the team run slower and build a poor domain.
+
+- Ubiquitous Language forces the weaknesses of domain out, makes the team communicate in one language and ensure with the language changes the code will too.
+
+- The preparation to new models or refine the domain you must Modeling Out Loud! Explore with speech. Trying out loud various constructs from possible model variations. It's easy to hear what is wrong.
+
+![obiquitous langue diagram](./assets/obiquitous-langue-diagram.png "obiquitous-langue-diagram")
+
+- Documents and diagrams should be used to explain the main frame of domain and none functional requirements of a system. They should short, clear and concise.
+
+- The fundamental details about the domain are in the code!
+
+- Document everything? Or Anything? A document should not do what a code do well. The code give us all details about the system. Therefore, use diagrams to get the big picture of the system.
