@@ -36,11 +36,11 @@ By Eric evans and introdutions of Martin Fowler.
 
 ### Three. Binding Model and Implementation
 
-- You software should have conceps, ideais, things to be respected by the design and de developers.
+- You software should have concept, ideals, things to be respected by the design and de developers.
 
 - Modeling and designing should be a one thing, when a model it doesn't seem practical to the implementation we should build a new one, when a model doesn't show all fundamentals concepts about the domain we should build a new one.
 
-- Pages 48 until 53 has a good exemple of modeling or a new busisnes use case should be made as model driven design. 
+- Pages 48 until 53 has a good example of modeling or a new business use case should be made as model driven design. 
 
 - A model driven design demands we work only with him. (Read the example in page 53)
 
@@ -48,19 +48,19 @@ By Eric evans and introdutions of Martin Fowler.
 
 ## Part 2: The Building Blocks of a Model-Driven Design
 
-![model driven design map comunication](./assets/model-driven-design-map.png "model driven design map comunication")
+![model driven design map communication](./assets/model-driven-design-map.png "model driven design map communication")
 
 ### Four. Isolating the Domain
 
-- A softwares can handle the execution of complex things demands the separation of the things, allowing complicated interactions and isolanting implementations.
+- A software can handle the execution of complex things demands the separation of the things, allowing complicated interactions and isolating implementations.
 
 ![layred-architecture](./assets/layred-architecture.png "layred-architecture")
 
-- Layred architecture is a well know pattern and should be undartandeted by every developer.
+- Layered architecture is a well know pattern and should be understood by every developer.
 
 - The essential principle:
     - Any element of a layer depends only on other elements in the same layer or on elements of the layers "beneath" it.
-    - Communication upward must pass through some indirect mechanis. (interfaces, dependecy injection, Observer pattern)
+    - Communication upward must pass through some indirect mechanism. (interfaces, dependency injection, Observer pattern)
 
 
 ![layers-definition](./assets/layers-definition.png "layers-definition")
@@ -68,8 +68,8 @@ By Eric evans and introdutions of Martin Fowler.
 
 ![layers-diagram](./assets/layers-diagram.png "layers-diagram")
 
-- Architectural Structure should help the domain developers to focus on develop the complexity of the domain and not carrying to satisfy the  limits of software. I know this phrase soulds a utopia but i like to think that we should aways has this porpuse, the rules of you architecture should not be a problem, should help, should potencialize the domain developers, they should be modeling the core business problems and not Architectural structures.
+- Architectural Structure should help the domain developers to focus on develop the complexity of the domain and not carrying to satisfy the limits of software. I know this phrase sounds a utopia but i like to think that we should always have this purpose, the rules of your architecture should not be a problem, should help, should potentialize the domain developers, they should be modeling the core business problems and not Architectural structures.
 
 - <strong>The Smart UI "Anti-Pattern"</strong>: pages 73 and 74 pros and cons.
-    - <strong>TLDR:</strong> You only should use this pattern to learn something from your user as pretty fast MVP. Have you learned what you wanted? Yes, take this software to the trash and build a real API and real Frontend. No? Do the same.
+    - <strong>TLDR:</strong> You only should use this pattern to learn something from your user, as pretty fast MVP. Have you learned what you wanted? Yes, take this software to the trash and build a real API and real Frontend. No? Do the same.
 
