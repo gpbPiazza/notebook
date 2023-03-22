@@ -73,3 +73,27 @@ By Eric evans and introdutions of Martin Fowler.
 - <strong>The Smart UI "Anti-Pattern"</strong>: pages 73 and 74 pros and cons.
     - <strong>TLDR:</strong> You only should use this pattern to learn something from your user, as pretty fast MVP. Have you learned what you wanted? Yes, take this software to the trash and build a real API and real Frontend. No? Do the same.
 
+### Five. A Model Expressed in Software
+
+- Sometimes are models or aspects of your domain that you should express then as action, operation as a service. Then try to express the same thing as an entity or in a value object.
+
+- For each association (many to many) it's possible to have a bidirectional communication, so if you have this association this models only makes sense when they are together.
+
+- You avoid many-to-many associations because this kind are the most difficult ones to maintain and also says very little about the domain. To make this happen, we have 3 rules to help to distilling our domain
+    1. Imposing a traversal direction
+    2. Adding a qualifier, effectively reducing multiplicity
+    3. Eliminating nonessential associations
+
+- Imposing a traversal direction in association many to many reduce the implementation to one to many and this association it's much better to maintain and express a lot more than many-to-many. You should express by your speech about the domain. A financial responsible has many children/students and a children can have many financial responsible, so we could model this association as many to many. What if we impose a direction given a restriction to this association, attention this imposing only makes sense if your domain allows this restriction, our restriction it will be a children/students only can have one responsible and this association is one to many, one responsible can have many children/students. Again, this restriction only makes sense if your domain expertise says and agree with or this association to many-to-many is not important.
+
+- When a bidirectional association is semantic with the domain, when it's necessary for the functionality of the system, so therefore this association will make sense and express this by domain.
+
+- <strong>Defining entity</strong>
+    - First: we should not model an entity by his attributes, but do by his meaning and conceptual identity.
+    - The fundamental conceptual about entity is abstract meaning and can change forms but still the same entity.
+    - A entity should define his classes/structs, responsibilities, attributes and associations by what this entity is by his meaning to the domain.
+    - Focus to maintain an entity by his identity in the domain and his life cycle. This identification to make an entity unique/with identity can come from the domain and also from the system.
+
+- Page 88 and 89 example about entity.
+
+- <strong>Defining value objects</strong>
