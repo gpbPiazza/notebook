@@ -88,12 +88,127 @@ By Eric evans and introdutions of Martin Fowler.
 
 - When a bidirectional association is semantic with the domain, when it's necessary for the functionality of the system, so therefore this association will make sense and express this by domain.
 
-- <strong>Defining entity</strong>
+- <strong>Defining entities</strong>
     - First: we should not model an entity by his attributes, but do by his meaning and conceptual identity.
     - The fundamental conceptual about entity is abstract meaning and can change forms but still the same entity.
     - A entity should define his classes/structs, responsibilities, attributes and associations by what this entity is by his meaning to the domain.
     - Focus to maintain an entity by his identity in the domain and his life cycle. This identification to make an entity unique/with identity can come from the domain and also from the system.
+    - Only entities can have unique identifiers (IDs)
 
 - Page 88 and 89 example about entity.
 
 - <strong>Defining value objects</strong>
+    - Value objects make part of the domain as entities.
+    - Value objects represent a descriptive aspect of our domain. They don't have a unique identifier, and we should only care about what they are.
+        - `represents a descritive aspect of our domain` the meaning about this is that you are going to have your entities objects with IDs, business responsibilities and the Value objects will represent an object that is not stored in the DB but, has some methods and functions will help you to describe better the domain.
+    - They are usually passed by parameters to execute a method and discarded, for example:
+        
+        ````go 
+        type Customer struct {
+            ID        uuid.UUID
+            Name      string
+            LegalForm LegalForm
+            Date      time.Time
+        }
+
+        type Person struct {
+            FullName string
+            Birthday Birthday
+        }
+
+        type Company struct {
+            Name         string
+            CreationDate time.Time
+        }
+
+        func (c Customer) ToPerson() Person {
+            return Person{
+                FullName: c.Name,
+                Birthday: c.Date,
+            }
+        }
+
+        func (c Customer) ToCompany() Company {
+            return Company{
+                Name: c.Name,
+                CreationDate: c.Date,
+            }
+        }
+
+        ````
+    - Here we have Customer as an entity and Person and Company as value objects helping us to describe our domain. Person and Company could have any methods and any rules from his specification of his orders or others entities from the system, here we only made a parse from entity to value object.
+
+- <strong>Defining services</strong>
+    - Services are actions, operations, intentions and not something.
+    - Services don't store state.
+    - Usually they are named as verbs and not nouns as entities and value objects.
+    - Services can be used as infrastructure services, application services and the domain services.
+    ![partitioning-services-into-layers](./assets/partitioning-services-into-layers.png "partitioning-services-into-layers")
+
+- <strong>Defining Modules</strong>
+    - Modules are packages responsible to define epics from the domain, they should tell us a story 
+    - They should have Low coupling and high cohesion are general design principles, and they also are deployable units.
+    - Unless there is a real intention to distribute code on different
+    servers, keep all the code that implements a single conceptual
+    object in the same MODULE.
+
+For example:
+
+````
+    project
+    |--...
+    |--pkg
+    |--access
+        |--infrastructure
+            |--repositories
+        |--presentation
+            |--...
+        |--application
+            |--service
+                |--authorization.go
+                |--registration.go
+        |--domain     
+            |--model
+                |--user.go
+                |--group.go
+                |--role.go
+        |--access.go
+    |--shopping
+        |--infrastructure
+            |--repositories
+        |--presentation
+            |--...
+        |--application
+            |--service
+                |--session_basket.go
+        |--domain     
+            |--service 
+                |--shopping.go 
+            |--factory 
+                |--basket.go  
+            |--model
+                |--order.go
+                |--basket.go
+        |--shopping.go
+    |--customer
+        |--infrastructure
+            |--repositories
+        |--presentation
+            |--...
+        |--application
+            |--...
+        |--domain  
+            |--model
+                |--customer.go 
+                |--address.go 
+        |--customer.go
+    |--...
+    |--...
+````
+- Here we have 3 modules Customer, Shopping and Access.
+
+### Six. The Life Cycle of a Domain Object
+
+- Aggregates
+
+- Factories
