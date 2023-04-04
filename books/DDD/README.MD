@@ -226,7 +226,7 @@ For example:
     - TL DR: Responsable to encapsulate all code necessary to access a database adn execute querys.
 
 ### Seven. Using the Language: An Extended Example
-- I strong recommend you to read chapter seven here Eric is going to get everything he has already explained and will use a real example it's very important chapter here you will see the difference between you and Eric building the same system and see how different will become his from yours ideas. This doesn't mean that Eric it corrects, it's just very interesting.
+- I strong recommend you to read chapter seven!! Here Eric is going to get everything he has already explained and will use a real example it's very important chapter here you will see the difference between you and Eric building the same system and see how different will become his from yours ideas. This doesn't mean that Eric it corrects, it's just very interesting.
 - Pages 155.
 - TODO: Build a system with the same design and funcionalities and link the repo here
 
