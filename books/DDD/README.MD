@@ -48,13 +48,13 @@ By Eric evans and introdutions of Martin Fowler.
 
 ## Part 2: The Building Blocks of a Model-Driven Design
 
-![model driven design map communication](./assets/model-driven-design-map.png "model driven design map communication")
+![model driven design map communication](./assets//model-driven-design-map.png "model driven design map communication")
 
 ### Four. Isolating the Domain
 
 - A software can handle the execution of complex things demands the separation of the things, allowing complicated interactions and isolating implementations.
 
-![layred-architecture](./assets/layred-architecture.png "layred-architecture")
+![layred-architecture](./assets//layred-architecture.png "layred-architecture")
 
 - Layered architecture is a well know pattern and should be understood by every developer.
 
@@ -63,10 +63,10 @@ By Eric evans and introdutions of Martin Fowler.
     - Communication upward must pass through some indirect mechanism. (interfaces, dependency injection, Observer pattern)
 
 
-![layers-definition](./assets/layers-definition.png "layers-definition")
+![layers-definition](./assets//layers-definition.png "layers-definition")
 
 
-![layers-diagram](./assets/layers-diagram.png "layers-diagram")
+![layers-diagram](./assets//layers-diagram.png "layers-diagram")
 
 - Architectural Structure should help the domain developers to focus on develop the complexity of the domain and not carrying to satisfy the limits of software. I know this phrase sounds a utopia but i like to think that we should always have this purpose, the rules of your architecture should not be a problem, should help, should potentialize the domain developers, they should be modeling the core business problems and not Architectural structures.
 
@@ -143,7 +143,7 @@ By Eric evans and introdutions of Martin Fowler.
     - Services don't store state.
     - Usually they are named as verbs and not nouns as entities and value objects.
     - Services can be used as infrastructure services, application services and the domain services.
-    ![partitioning-services-into-layers](./assets/partitioning-services-into-layers.png "partitioning-services-into-layers")
+    ![partitioning-services-into-layers](./assets//partitioning-services-into-layers.png "partitioning-services-into-layers")
 
 - <strong>Defining Modules</strong>
     - Modules are packages responsible to define epics from the domain, they should tell us a story 
@@ -210,5 +210,26 @@ For example:
 ### Six. The Life Cycle of a Domain Object
 
 - Aggregates
+    - Is an abstraction that will delimit an area of association between one or more objects of a domain. This area helps to determinate who can access this objects, who is the root of the aggregation and how the updates will work in the associations.
+    - In other words, will be a group of objects associated that we will treat as unit to update data.
+    - Aggregates has a Root and a limit, everything inside limit is inside of aggregate and the Root is unique in the aggregate and other objects outside of limits can access by the root the object's aggregated
+![aggregates-associantion](./assets/aggregates.png "aggregates")
+    - Page 122 has all detailed rules about aggregates.
 
 - Factories
+    - Factories are creational project pattern, they know how to build your objects and his responsibility is to encapsulate all complexity of how to create your domain objects, services and etc...
+    - Build an interface and make sure the client will never make reference to the concrete classes responsible to build the objects.
+    - Take care about arguments, factories are tied coupled into his arguments if your arguments are complex your factory will be too, keep simple and small.
+    - If factory is building a domain object and this object is inside of Aggregation, it is the responsibility of factory to always build a valid aggregate.
+
+- Repositories
+    - TL DR: Responsable to encapsulate all code necessary to access a database adn execute querys.
+
+### Seven. Using the Language: An Extended Example
+- I strong recommend you to read chapter seven here Eric is going to get everything he has already explained and will use a real example it's very important chapter here you will see the difference between you and Eric building the same system and see how different will become his from yours ideas. This doesn't mean that Eric it corrects, it's just very interesting.
+- Pages 155.
+- TODO: Build a system with the same design and funcionalities and link the repo here
+
+
+## Part 3: Refactoring Toward Deeper Insight
+
