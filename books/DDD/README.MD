@@ -36,7 +36,7 @@ By Eric evans and introdutions of Martin Fowler.
 
 ### Three. Binding Model and Implementation
 
-- You software should have concept, ideals, things to be respected by the design and de developers.
+- You software should have concept, ideals, things to be respected by the design and the developers.
 
 - Modeling and designing should be a one thing, when a model it doesn't seem practical to the implementation we should build a new one, when a model doesn't show all fundamentals concepts about the domain we should build a new one.
 
@@ -55,8 +55,6 @@ By Eric evans and introdutions of Martin Fowler.
 - A software can handle the execution of complex things demands the separation of the things, allowing complicated interactions and isolating implementations.
 
 ![layred-architecture](./assets//layred-architecture.png "layred-architecture")
-
-- Layered architecture is a well know pattern and should be understood by every developer.
 
 - The essential principle:
     - Any element of a layer depends only on other elements in the same layer or on elements of the layers "beneath" it.
@@ -101,8 +99,9 @@ By Eric evans and introdutions of Martin Fowler.
     - Value objects make part of the domain as entities.
     - Value objects represent a descriptive aspect of our domain. They don't have a unique identifier, and we should only care about what they are.
         - `represents a descritive aspect of our domain` the meaning about this is that you are going to have your entities objects with IDs, business responsibilities and the Value objects will represent an object that is not stored in the DB but, has some methods and functions will help you to describe better the domain.
+    - When you only care about the properties of a model name this model as value-object, ensure he will express well the meaning of all properties he has and give him a functionality related.
+    - Treat value objects as immutable, there is no update, only delete and create a new one. 
     - They are usually passed by parameters to execute a method and discarded, for example:
-        
         ````go 
         type Customer struct {
             ID        uuid.UUID
@@ -206,15 +205,19 @@ For example:
     |--...
 ````
 - Here we have 3 modules Customer, Shopping and Access.
+- If some modules have some kind of dependency, we should implement an object responsible to map a structure from one module to another one. We are going to see more about this further in this paper.
 
 ### Six. The Life Cycle of a Domain Object
 
 - Aggregates
     - Is an abstraction that will delimit an area of association between one or more objects of a domain. This area helps to determinate who can access this objects, who is the root of the aggregation and how the updates will work in the associations.
-    - In other words, will be a group of objects associated that we will treat as unit to update data.
-    - Aggregates has a Root and a limit, everything inside limit is inside of aggregate and the Root is unique in the aggregate and other objects outside of limits can access by the root the object's aggregated
+    - In other words, will be a group of objects associated that we will treat as unit to update and select data.
+    - Aggregates has a Root and a limit, everything inside limit is inside of aggregate and the Root is unique in the aggregate and other objects outside of limits can access by the root the object's aggregated.
+    - This is another tool to help us to modelling our domain, everything inside an aggregation should make sense with the domain.
+    - Aggregates are just a group of entities and value objects where make sense with the domain.
+    - The main idea and concepts about the aggregates are here but with you want to implement a one, you should know all detailed rules about it what you can do, should and not do with aggregates. These rules are in the page 121 until 123.
+Example:
 ![aggregates-associantion](./assets/aggregates.png "aggregates")
-    - Page 122 has all detailed rules about aggregates.
 
 - Factories
     - Factories are creational project pattern, they know how to build your objects and his responsibility is to encapsulate all complexity of how to create your domain objects, services and etc...
@@ -226,10 +229,10 @@ For example:
     - TL DR: Responsable to encapsulate all code necessary to access a database adn execute querys.
 
 ### Seven. Using the Language: An Extended Example
-- I strong recommend you to read chapter seven!! Here Eric is going to get everything he has already explained and will use a real example it's very important chapter here you will see the difference between you and Eric building the same system and see how different will become his from yours ideas. This doesn't mean that Eric it corrects, it's just very interesting.
+- <strong>I strong recommend you to read chapter seven!!</strong> Here Eric is going to get everything he has already explained and will use a real example it's very important chapter here you will see the difference between you and Eric building the same system and see how different will become his from yours ideas. This doesn't mean that Eric it corrects, there is no correct here, it's just very interesting and different.
 - Pages 155.
 - TODO: Build a system with the same design and funcionalities and link the repo here
 
-
 ## Part 3: Refactoring Toward Deeper Insight
 
+- 
