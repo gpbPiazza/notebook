@@ -235,4 +235,52 @@ Example:
 
 ## Part 3: Refactoring Toward Deeper Insight
 
-- 
+- The real challenge is to actually find an incisive model, one that captures subtle concerns of the domain experts and can drive a practical design. Ultimately, we hope to develop a model that captures a deep understanding of the domain. This should make the software more in tune with the way the domain experts think and more responsive to the
+user's needs.
+
+- Success developing useful models comes down to three points.
+    1. Sophisticated domain models are achievable and worth the trouble.
+    2. They are seldom developed except through an iterative process of refactoring,including close involvement of the domain experts with developers interested in learning about the domain.
+    3. They may call for sophisticated design skills to implement and to use effectively.
+
+### Eight. Breakthrough
+
+- The returns from refactoring are not linear. Usually there is a marginal return for a small effort, and the small improvements add up. They fight entropy, and they are the frontline protection against a fossilized legacy. But some of the most important insights come abruptly and send a shock through the project.
+
+![refactoring-time](./assets/refactoring_time.png "refactoring-time")
+
+- When an opportunity of breakthrough show up in a project usually they are terrifying, this kind of refactoring shows bigger risks than the usually refactorings in the project.
+
+- Here Eric is going to tell a history from hiss carrier and give good examples of refactoring, if you are interested to go a deeper LVL into design and new models follow this chapter a head.
+
+### Nine. Making Implicit Concepts Explicit
+
+- Many transformations of domain models and the corresponding code happen when developers recognize a concept that has been hinted at in discussion or present implicitly in the design, and they then represent it explicitly in the model with one or more objects or relationships.
+
+- All start with the recognization of the implicit concepts.
+
+- Listen to the language the domain experts use. Are there terms that succinctly state something complicated? Are they correcting your word choice (perhaps diplomatically)? Do the puzzled looks on their faces go away when you use a particular phrase? These are hints of a concept that might benefit the model. (UBIQUITOUS LANGUAGE)
+
+- Pages 199 until 208 good example of `Making Implicit Concepts Explicit`.
+
+- If something sounds bad or smells bad. Take a look! Probably you don't know something about the domain or your design is not good enough
+
+### Ten. Supple Design
+
+- The ultimate purpose of software is to serve users. But first, that same software ha to serve developers.
+
+- Here Eric will list to us a lot of tools for a good design starting with `Intention revealing interfaces`, he will give to us small example in the page 237 and this examples will grow with all other tools, so I strong recommend reading all the example.
+
+- <strong>Intention revealing interfaces</strong>
+    -  We are always fighting cognitive overload. If the minds of the client's developer flooded with detail about how a component does its job, his mind isn't clear to work out the intricacies of the client design.
+    - If someone has to look deeper in an implementation about an interface, ALL VALUE OF ABSTRACTION IS LOST.
+    - Interfaces should define intentions and his methods actions.
+
+- <strong>Side effect free functions</strong>
+    - We have two categories of operations, commands and queries. Queries obtain information from the system. Commands (also known as modifiers) are operations that affect some change to the systems.
+    - In standard English, the term side effect implies an unintended consequence, but in computer science, it means any effect on the state of the system. For our purposes, let's narrow that meaning to any change in the state of the system that will affect future operations.
+    - Making side effect free functions:
+        1. Segregate queries from commands. Ensure all commands will not return any value and keep these commands operations most simple possible. Execute all queries and calculations in methods with side effects free.
+        2. You can use a VALUE OBJECT to operate the command, as VALUE OBJECTS are immutable we can create and save new ones as we wish, different from entities where his life cycle is very regulated in the transaction.
+
+- <strong>Side effect free functions</strong>
