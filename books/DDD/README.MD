@@ -269,7 +269,7 @@ user's needs.
 
 - The ultimate purpose of software is to serve users. But first, that same software ha to serve developers.
 
-- Here Eric will list to us a lot of tools for a good design starting with `Intention revealing interfaces`, he will give to us small example in the page 237 and this examples will grow with all other tools, so I strong recommend reading all the example.
+- Here Eric will list to us a lot of tools for a good design starting with `Intention revealing interfaces`, he will give to us small example in the page 237 and this example will grow with all other tools until page 253, so I strong recommend reading all the examples.
 
 - <strong>Intention revealing interfaces</strong>
     -  We are always fighting cognitive overload. If the minds of the client's developer flooded with detail about how a component does its job, his mind isn't clear to work out the intricacies of the client design.
@@ -283,4 +283,42 @@ user's needs.
         1. Segregate queries from commands. Ensure all commands will not return any value and keep these commands operations most simple possible. Execute all queries and calculations in methods with side effects free.
         2. You can use a VALUE OBJECT to operate the command, as VALUE OBJECTS are immutable we can create and save new ones as we wish, different from entities where his life cycle is very regulated in the transaction.
 
-- <strong>Side effect free functions</strong>
+- <strong>Assertions</strong>
+    - Separating complex computations into SIDE-EFFECT-FREE FUNCTIONS cuts the problem down to size, but there is still a residue of commands on the ENTITIES that produce side effects, and anyone using them must understand their consequences. ASSERTIONS make side effects explicit and easier to deal with.
+    - TLDR: when just the SIDE-EFFECT-FREE FUNCTIONS is not enough, you will have to use good names into the methods of the entities or services to make clear to all clients that method or function will do something and will change the state of an entity.
+
+- <strong>Conceptual Contours</strong>
+    - TLDR: Ensure your domain is not separated without a concept or a why, if your domain is too granular, too modular you will lose important concepts about the domain.
+    - Decompose design elements (operations, interfaces, classes, and AGGREGATES) into cohesive units, taking into consideration your intuition of the important divisions in the domain. Observe the axes of change and stability through successive refactorings, and look for the underlying CONCEPTUAL CONTOURS that explain these shearing patterns. Align the model with the consistent aspects of the domain that make it a viable area of knowledge in the first place.
+
+- <strong>Standalone Classes</strong>
+    - TLDR: Low coupling is fundamental, when you can, go all the way! Every such self-contained class significantly eases the burden of understanding a MODULE.
+
+- <strong>Closure of Operations</strong>
+    - `If we take two real numbers and multiply them together, we
+get another real number.` we call this a closed operation.
+    - A closed operation provides a high-level interface without introducing any dependency on other concepts.
+    - Where it fits, define an operation whose return type is the same as the type of its argument(s). Such an operation is closed under the set of instances of that type.
+
+- The patterns presented in this chapter illustrate a general style of design and a way of thinking about design. Making software obvious, predictable, and communicative makes abstraction and encapsulation effective. Models can be factored so that objects are simple to use and understand yet still have rich, high-level interfaces.
+
+- These techniques require fairly advanced design skills to apply.
+
+- Again all these are tools for a good design and I strong to recommend read about the tools and see the example given in the book by Eric, start at 237 page. Only using the design you will understand if make sense for your domain or not.
+
+- <strong>Specifications</strong>
+    - Here Eric will illustrate a design patter `Specifications`, it's a very complex pattern so give a try to resume will only make a mess, read about him the patter starting in the page 260.
+
+### Eleven. Applying Analysis Patterns
+- Analysis Patterns is a way to identify patterns in the activity of modelling a new domain. Like design patterns we have to coding, Eric and Martin show us that domains has this kind of stuff too. But AGAIN be very carefully about this, even Eric says these every business has his own vocabulary, specifications, use cases and rules it's your job to identify where it's good to use or not, make sense or not.
+- This chapter Eric use very little concepts text and give us a lot of examples chats, where a developer try to use this Analysis Patterns to refactor his domain.
+- Martin Fowler has book only talking about theme `Analysis Patterns`.
+
+#### Twelve. Relating Design Patterns to the Model
+- Here Eric will show some design patterns applied in some domains Policy and Composite. But could be any other pattern, main idea here is only use a design pattern in your domain if the pattern says something conceptual about your domain models. For this, use the UBIQUITOUS LANGUAGE to identify if, even in the domain, specialist vocabulary or rules has these patterns.
+
+- The only requirement here is the patter HAS to say something conceptual about your domain. And not only be a technical solution in your domain.
+
+#### Thirteen. Refactoring Toward Deeper Insight
+
+- 
