@@ -209,7 +209,7 @@ For example:
 
 ### Six. The Life Cycle of a Domain Object
 
-- Aggregates
+- <strong>Aggregates</strong>
     - Is an abstraction that will delimit an area of association between one or more objects of a domain. This area helps to determinate who can access this objects, who is the root of the aggregation and how the updates will work in the associations.
     - In other words, will be a group of objects associated that we will treat as unit to update and select data.
     - Aggregates has a Root and a limit, everything inside limit is inside of aggregate and the Root is unique in the aggregate and other objects outside of limits can access by the root the object's aggregated.
@@ -219,13 +219,13 @@ For example:
 Example:
 ![aggregates-associantion](./assets/aggregates.png "aggregates")
 
-- Factories
+- <strong>Factories</strong>
     - Factories are creational project pattern, they know how to build your objects and his responsibility is to encapsulate all complexity of how to create your domain objects, services and etc...
     - Build an interface and make sure the client will never make reference to the concrete classes responsible to build the objects.
     - Take care about arguments, factories are tied coupled into his arguments if your arguments are complex your factory will be too, keep simple and small.
     - If factory is building a domain object and this object is inside of Aggregation, it is the responsibility of factory to always build a valid aggregate.
 
-- Repositories
+- <strong>Repositories</strong>
     - TL DR: Responsable to encapsulate all code necessary to access a database adn execute querys.
 
 ### Seven. Using the Language: An Extended Example
@@ -321,4 +321,62 @@ get another real number.` we call this a closed operation.
 
 #### Thirteen. Refactoring Toward Deeper Insight
 
-- 
+- Sophisticated domain models are achievable and worth the toruble.
+- They are seldom developed except through an iterative process of refactoring, including close #### Thirteen. Refactoring Toward Deeper Insight
+
+- Sophisticated domain models are achievable and worth the trouble.
+- They are seldom developed except through an iterative process of refactoring, including close involvement of the domain experts with developers interested in learning about the domain.
+
+- Scope and sleep. Refactoring to a deeper model are difficult, demand creativity and a lot of tests. So, take breaks between meetings don't push your self too much, it's better to make shorts meetings during the week than a long one. Exercising the UBIQUITOUS LANGUAGE
+
+- Timing
+    - If you wait until you can make a complete justification for a change, you've waited too long. 
+- When do the refactoring?
+    - The design does not express the team's current understanding of the domain;
+    - You see implicit concepts and know how to make explicit
+
+## Part 4: Strategic Design
+
+#### Fourteen. Maintaining Model Integrity
+
+1. The most fundamental requirement of a model is that it be internally consistent; that its terms always have the same meaning, and that it contain no contradictory rules. 
+2. A model is meaningless unless he is logically consistent.
+- If your proposal hurts these two statements, you should not make this go forward. of the domain experts with developers interested in learning about the domain.
+
+- Scope and sleep. Refactoring to a deeper models are dificult, demand criativit and a lot of tests. So, take brakes between meetigs dont push your self too much, its better make shorts meetings doring the week than a long one. Exercising the UBIQUITOUS LANGUAGE
+
+- Timing
+    - If you wait until you can make a complete justification for a change, you've waited too long. 
+- When do the refactoring?
+    - The design does not express the team's current understanding of the domain;
+    - You see implicit concepts and know how to make explicit
+
+## Part 4: Strategic Design
+
+#### Fourteen. Maintaining Model Integrity
+
+1. The most fundamental requirement of a model is that it be internally consistent; that its terms always have the same meaning, and that it contain no contradictory rules, is called unification. 
+2. A model is meaningless unless he is logically consistent.
+
+- If your proposal hurts these two statements, you should not make this go forward.
+
+- The world of large systems development is not the ideal world. To maintain that level of unification in an entire enterprise system is more trouble than it is worth. We should make conscious decisions about the path o model and allow diverging and what their relationship to each mode will happen.
+
+
+- <strong>Bounded Context</strong>
+    - Multiple models coexist on big projects, and this works fine in many cases. Different models apply in different contexts.
+    - A bounded context gives the teams an applicable limit about a model, in that way the team will have clear and shared knowledge what should be consistent and how is this related to others contexts.
+    - The model context is whatever set of conditions must apply in order to be able to say that the terms in a model have a specific meaning.
+    - Explicitly define the context within which a model applies. Explicitly set boundaries in terms of <strong>team organization</strong>, usage within specific parts of the application, and physical manifestations such as code bases and database schemas. Keep the model strictly consistent within these bounds, but don't be distracted or confused by issues outside.
+    - Bounded context are not a module, you can use multiples modules inside of context. However, It's pretty common you see design using the pattern module to separate contexts, and that's why Eric have a disclaimer about this theme.
+- <strong>Continuous Integration</strong>
+    - Having defined a BOUNDED CONTEXT, we must keep it sound.
+    - Build tests to ensure boundaries inside your bounded context.
+- <strong>Context Map</strong>
+    - Code reuse between BOUNDED CONTEXTS is a hazard to be avoided.
+    - There are only two important points here:
+        1. The BOUNDED CONTEXTS should have names so that you can talk about them. Those names hould enter the UBIQUITOUS LANGUAGE of the team.
+        2. Everyone has to know where the boundaries lie, and be able to recognize the CONTEXT of any piece of code or any situation.
+    - The MAP does not have to be documented in any particular form. You just have to communicate this map, the LVL of detail of this map will depend on the team and company needs.
+- <strong>Shared Kernel</strong>
+    - 
