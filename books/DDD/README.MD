@@ -379,4 +379,11 @@ get another real number.` we call this a closed operation.
         2. Everyone has to know where the boundaries lie, and be able to recognize the CONTEXT of any piece of code or any situation.
     - The MAP does not have to be documented in any particular form. You just have to communicate this map, the LVL of detail of this map will depend on the team and company needs.
 - <strong>Shared Kernel</strong>
-    - 
+    - In some cases with BOUNDED CONTEXT well-defined will produce many team's working in his respective BOUNDED CONTEXT. But you will still have some models that shouldn't be duplicated or decoupled, and these models should be shared between teams. For this, Eric calls SHARED KERNEL.
+- <strong>Customer/Supplier Development Teams</strong>
+    - Here Eric will argue about team interaction and how a good communication and one manager between these teams should work. With want to learn more about it recommend read this part. Page 340.
+- <strong>Anticorruption Layer</strong> 
+    - New systems almost always have to be integrated with legacy or other systems, which have their own models. Translation layers can be simple, even elegant, when bridging well-designed BOUNDED CONTEXTS with cooperative teams. But when the other side of the boundary starts to leak through, the translation layer may take on a more defensive tone.
+    - Build a layer and an interface where the other system will implement, and you should not have to code on legacy code for this. Then, make a layer to translate the result from legacy code to your types and models. 
+    - This layer should be responsible to translate your code to the interface and response from legacy code to your new code.
+    - WARNING: be smart here! Do only what you need! To maintain a wall between others, systems can be expensive and hard to maintain if your wall is too big for your needs. Chinese the Great Wall bankrupted at least one dynasty, imagine your code.
