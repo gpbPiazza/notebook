@@ -46,3 +46,11 @@ By Aditya Bhargava
 4.2 - All code are into folder chapter4Code
 4.3 - All code are into folder chapter4Code
 4.4 - All code are into folder chapter4Code
+4.5 - O(n)
+4.6 - O(n)
+4.7 - O(1)
+4.8 - O(n^2)
+
+# 5: HashTable
+### Notes: none
+### Exercises:
