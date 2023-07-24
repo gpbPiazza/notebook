@@ -46,7 +46,11 @@ By Aditya Bhargava
 4.2 - All code are into folder chapter4Code
 4.3 - All code are into folder chapter4Code
 4.4 - All code are into folder chapter4Code
-# 5: Tabela hash
+4.5 - O(n)
+4.6 - O(n)
+4.7 - O(1)
+4.8 - O(n^2)
+# 5: Hash table
 ### Notes: nones
 ### Exercises:
 5.1 - Consistent

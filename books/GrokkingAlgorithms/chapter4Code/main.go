@@ -67,3 +67,18 @@ func binarySearch(nums []int, target int) int {
 	}
 	return -1
 }
+
+func quicksort(nums []int) []int {
+	if len(nums) > 2 {
+		return nums
+	}
+
+	// middle := len(nums)/2
+	// var lower []int
+	// var bigger []int
+
+	// for i, _ := range nums {
+
+	// }
+	return []int{}
+}
