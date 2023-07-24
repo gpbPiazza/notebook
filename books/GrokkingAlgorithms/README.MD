@@ -46,3 +46,13 @@ By Aditya Bhargava
 4.2 - All code are into folder chapter4Code
 4.3 - All code are into folder chapter4Code
 4.4 - All code are into folder chapter4Code
+# 5: Tabela hash
+### Notes: nones
+### Exercises:
+5.1 - Consistent
+5.2 - Inconsistency
+5.3 - Inconsistency
+5.4 - Consistent
+5.5 - Functions C e D
+5.6 - Functions B e D
+5.7 - Functions B, C e D
