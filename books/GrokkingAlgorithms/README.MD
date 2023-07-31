@@ -60,3 +60,21 @@ By Aditya Bhargava
 5.5 - Functions C e D
 5.6 - Functions B e D
 5.7 - Functions B, C e D
+# 5: Large search
+### Notes: nones
+### Exercises:
+6.1 - Start -> upper node -> end
+6.2 - Jat -> cat
+6.3 - B
+6.4 - 
+     1. acordar
+     2. escovar os dentes
+     3. praticar exercício
+     4. tomar banho
+     5. trocar de roupa
+     6. tomar café
+     7. embrulhar o lanche
+6.5 - A e C
+# 7: Dijkstra algorithm
+### Notes: nones
+### Exercises:
