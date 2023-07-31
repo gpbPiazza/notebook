@@ -7,15 +7,26 @@ import (
 
 func main() {
 
-	myConexations := newGrapht()
-
-	_ = findMangoSeller(myConexations)
+	// myConexations := newMangoSellerGrapht()
+	// _ = findMangoSeller(myConexations)
 	// Complexidade Big O notations
 	// O(número de arestas/conexations)
 	// Por adicionar as pessoas em uma lista de ja checadas O(número de nós)
 	// Portanto a complexidade total fica O(número de arestas + número de nós) = O(V + A)
 	// V número de vérticies/nós e A número de arestas
+
+	grapth := newPathGrapht()
+	path := shortPathBetweenVertices("jato", "gado", grapth)
+	expected := []string{"jato", "gato", "gado"}
+
+	for i, got := range path {
+		if got != expected[i] {
+			fmt.Println("Error!\nexpected %s \nbut got -> %s", expected[i], got)
+		}
+	}
+
 }
+
 func isMangoSeller(person string) bool {
 	return person[0:1] == "M"
 }
@@ -60,7 +71,7 @@ func findMangoSeller(peopleConexations map[string][]string) string {
 	}
 }
 
-func newGrapht() map[string][]string {
+func newMangoSellerGrapht() map[string][]string {
 	grapth := make(map[string][]string, 0)
 
 	grapth["me"] = []string{"alice", "bob", "claire"}
@@ -75,12 +86,42 @@ func newGrapht() map[string][]string {
 	return grapth
 }
 
-type hashTable struct{}
+func shortPathBetweenVertices(start, end string, grapth map[string][]string) []string {
+	results := make(map[int][]string, 0)
+	conexations := grapth[start]
+	//1 Pega as conexões
+	//2 Concatena cada conexão no map de resultados
+	//3 Vefica se o elemento concatenado é o final
+	// 3.1 Caso for return resultado
+	// 3.2 Caso não repete passo 1
 
-func (ht hashTable) Get(key string) any {
-	return ht
+	// 1. acessa node start
+	// 2. percorre sua conexões
+	// 3. concatena cada conexão em um slice de results
+	// 4. Repete isso até acabar todas as conexões do grafo
+	// 5. Com o map de possíveis paths feito encontre aquel que possuí start como primeiro e end como último elementos
+	// 6. Dentre esses encontrados aquel que tiver o menor comprimento é o menor caminho
+
+	for i, conexation := range conexations {
+		results[i] = []string{start, conexation}
+		if conexation == end {
+			return results[i]
+		}
+
+	}
+	return nil
 }
 
-func newHashTable() hashTable {
-	return hashTable{}
+func newPathGrapht() map[string][]string {
+	grapth := make(map[string][]string, 0)
+
+	grapth["jato"] = []string{"tato", "gato"}
+	grapth["tato"] = []string{"chato", "gato"}
+	grapth["gato"] = []string{"gado", "grato"}
+	grapth["grato"] = []string{"gado"}
+	grapth["gado"] = []string{}
+	grapth["chato"] = []string{"gado"}
+
+	fmt.Println(grapth)
+	return grapth
 }
