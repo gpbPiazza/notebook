@@ -82,3 +82,26 @@ func quicksort(nums []int) []int {
 	// }
 	return []int{}
 }
+
+func findUniqueVals(nums []int) []int {
+	var result []int
+	mapCheckedNums := make(map[int]int, 0)
+	mapDuplicatedNums := make(map[int]int, 0)
+
+	for i, n := range nums {
+		_, ok := mapCheckedNums[n]
+		if ok {
+			mapDuplicatedNums[n] = i
+		}
+		mapCheckedNums[n] = n
+	}
+
+	for _, v := range nums {
+		_, ok := mapDuplicatedNums[v]
+		if !ok {
+			result = append(result, v)
+		}
+	}
+
+	return result
+}
