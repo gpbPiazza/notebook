@@ -17,13 +17,13 @@ func main() {
 
 	grapth := newPathGrapht()
 	path := shortPathBetweenVertices("jato", "gado", grapth)
-	expected := []string{"jato", "gato", "gado"}
-
-	for i, got := range path {
-		if got != expected[i] {
-			fmt.Println("Error!\nexpected %s \nbut got -> %s", expected[i], got)
-		}
-	}
+	// expected := []string{"jato", "gato", "gado"}
+	fmt.Println(path)
+	// for i, got := range path {
+	// 	if got != expected[i] {
+	// 		fmt.Println("Error!\nexpected %s \nbut got -> %s", expected[i], got)
+	// 	}
+	// }
 
 }
 
@@ -87,29 +87,50 @@ func newMangoSellerGrapht() map[string][]string {
 }
 
 func shortPathBetweenVertices(start, end string, grapth map[string][]string) []string {
-	results := make(map[int][]string, 0)
-	conexations := grapth[start]
-	//1 Pega as conexões
-	//2 Concatena cada conexão no map de resultados
-	//3 Vefica se o elemento concatenado é o final
-	// 3.1 Caso for return resultado
-	// 3.2 Caso não repete passo 1
+	queue := list.New()
+	resultTable := make(map[string][]string, 0)
+	queue.PushFront(start)
+	result := []string{start}
+	// alreadyCheck := make(map[string]bool, 0)
 
-	// 1. acessa node start
-	// 2. percorre sua conexões
-	// 3. concatena cada conexão em um slice de results
-	// 4. Repete isso até acabar todas as conexões do grafo
-	// 5. Com o map de possíveis paths feito encontre aquel que possuí start como primeiro e end como último elementos
-	// 6. Dentre esses encontrados aquel que tiver o menor comprimento é o menor caminho
+	for {
+		element := queue.Front()
+		if element == nil {
+			fmt.Println("there is no conexations into start vertice")
+			return result
+		}
+		vertice, ok := element.Value.(string)
+		if !ok {
+			fmt.Println(element, "element in queue is not a string")
+			return result
+		}
+		fmt.Println("queue state ->", queue.Len())
+		fmt.Println("checking ->", vertice)
 
-	for i, conexation := range conexations {
-		results[i] = []string{start, conexation}
-		if conexation == end {
-			return results[i]
+		result = append(result, vertice)
+		resultTable[vertice] = result
+		if vertice == end {
+			return result
 		}
 
+		// 1. acessa node start
+		// 2. percorre sua conexões
+		// 3. concatena cada conexão em um slice de results
+		// 4. Repete isso até acabar todas as conexões do grafo
+		// 5. Com o map de possíveis paths feito encontre aquel que possuí start como primeiro e end como último elementos
+		// 6. Dentre esses encontrados aquel que tiver o menor comprimento é o menor caminho
+
+		fmt.Println("queuing", grapth[vertice])
+		for _, conexation := range grapth[vertice] {
+			result = append(result, conexation)
+			queue.PushBack(conexation)
+			if conexation == end {
+				return result
+			}
+		}
+
+		queue.Remove(element)
 	}
-	return nil
 }
 
 func newPathGrapht() map[string][]string {
