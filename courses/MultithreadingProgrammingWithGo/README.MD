@@ -3,6 +3,8 @@
 
 By James Cutajar. Course [Link](https://www.udemy.com/course/multithreading-in-go-lang/)
 
+All code of this course are in the [boids repository](https://github.com/gpbPiazza/boids)
+
 ## Parallel computing
 - [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law)
   - Amdahl's law is often used in parallel computing to predict the theoretical speedup when using multiple processors.
