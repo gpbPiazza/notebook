@@ -61,14 +61,20 @@ func Test_findUniqueVals(t *testing.T) {
 		want []int
 	}{
 		{
-			name: "should return [1,2,3]",
+			name: "should return [6, 1, 2, 3]",
 			nums: []int{6, 5, 1, 2, 3, 4, 4, 5, 7, 7},
 			want: []int{6, 1, 2, 3},
+		},
+		{
+			name: "should return [1,2,3]",
+			nums: []int{1, 2, 3},
+			want: []int{1, 2, 3},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := findUniqueVals(tt.nums); !reflect.DeepEqual(got, tt.want) {
+			got := findUniqueVals(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("findUniqueVals() = %v, want %v", got, tt.want)
 			}
 		})
