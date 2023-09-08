@@ -44,3 +44,7 @@ All code of this course are in the [boids repository](https://github.com/gpbPiaz
 
   And reduce all this cost of context switch overhead is what the Green threads is trying to solve.
   ![Alt text](image-4.png)
+## Memory sharing
+- Inter process communication (IPC) -> more read https://www.geeksforgeeks.org/inter-process-communication-ipc/
+  - Message passing:
+  - Shared memory: easy and low cost, but can be hard to manage
