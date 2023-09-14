@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	zap := []int{1, 2, 3, 7, 0, 5, 1, 4, 66, 33}
-	countElements(zap)
+	// countElements(zap)
 	fmt.Println(sum(zap))
-	fmt.Println(findBiggest(zap))
+	// fmt.Println(findBiggest(zap))
 }
 
 func countElements(nums []int) int {
