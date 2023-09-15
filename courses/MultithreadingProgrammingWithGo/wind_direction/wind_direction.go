@@ -100,6 +100,8 @@ func main() {
 	//3. Assign to N, NE, E, SE, S, SW, W, NW, 070 -> E + 1
 	go mineWindDistribution(windsChannel, resultsChannel)
 
+	// metarfiles are files from aeroport reports about the local weather report to the airplanes.
+	// this report follow a especific format to be easy comunicate and easy to read between the comunication of each airplane.
 	absPath, _ := filepath.Abs("./metarfiles/")
 	files, _ := os.ReadDir(absPath)
 	start := time.Now()

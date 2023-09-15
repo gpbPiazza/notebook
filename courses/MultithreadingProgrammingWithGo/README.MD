@@ -46,5 +46,9 @@ All code of this course are in the [boids repository](https://github.com/gpbPiaz
   ![Alt text](image-4.png)
 ## Memory sharing
 - Inter process communication (IPC) -> more read https://www.geeksforgeeks.org/inter-process-communication-ipc/
-  - Message passing:
+  - Message passing: in go you can use channels to massage passing between threads.
   - Shared memory: easy and low cost, but can be hard to manage
+
+  Channels in go: Whener you pass a valeu to a channel in go the thread stay lock until someone receives that value.
+  ![Alt text](image-5.png)
+  The red robot only will be unblocked when the blue robot receives the "hello" string into the x variable.
