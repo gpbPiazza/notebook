@@ -52,3 +52,8 @@ All code of this course are in the [boids repository](https://github.com/gpbPiaz
   Channels in go: Whener you pass a valeu to a channel in go the thread stay lock until someone receives that value.
   ![Alt text](image-5.png)
   The red robot only will be unblocked when the blue robot receives the "hello" string into the x variable.
+
+
+## Condition variables
+  - https://pkg.go.dev/sync#Cond
+    - The condition signal, the moment when some thread changes the state of the variable will only unlcok one thread that are in awating state.
