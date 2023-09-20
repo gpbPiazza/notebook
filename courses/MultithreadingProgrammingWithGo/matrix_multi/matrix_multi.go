@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const matrixSize = 250
+const matrixSize = 5
 
 var (
 	matrixA = [matrixSize][matrixSize]int{}
