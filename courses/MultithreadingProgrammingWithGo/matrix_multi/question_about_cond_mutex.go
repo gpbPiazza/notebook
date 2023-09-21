@@ -7,16 +7,16 @@ import (
 )
 
 var (
-	mlock = sync.Mutex{}
-	cond  = sync.NewCond(&mlock)
+	mlock  = sync.Mutex{}
+	condEx = sync.NewCond(&mlock)
 )
 
 func runChildThread() {
 	mlock.Lock()
 	fmt.Println("RunChildThread, lock acquired")
-	cond.Signal()
+	condEx.Signal()
 	fmt.Println("RunChildThread, Waiting")
-	cond.Wait()
+	condEx.Wait()
 	fmt.Println("RunChildThread, Running")
 }
 
@@ -25,14 +25,10 @@ func RunMainThread() {
 	fmt.Println("RunMainThread, lock acquired")
 	go runChildThread()
 	fmt.Println("RunMainThread, Waiting")
-	cond.Wait()
+	condEx.Wait()
 	fmt.Println("RunMainThread, Running")
-	cond.Signal()
+	condEx.Signal()
 	time.Sleep(10 * time.Second)
-}
-
-func main() {
-	RunMainThread()
 }
 
 // Hi Dio,
