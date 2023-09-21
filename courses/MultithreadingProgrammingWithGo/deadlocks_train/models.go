@@ -11,10 +11,25 @@ type Train struct {
 	Front  int
 }
 
+func NewTrain(id int) *Train {
+	return &Train{
+		ID:     id,
+		Length: trainLenght,
+		Front:  0,
+	}
+}
+
 type Intersection struct {
 	ID       int
 	Mutex    sync.Mutex
 	LockedBy int
+}
+
+func NewIntersection(id int) *Intersection {
+	return &Intersection{
+		ID:       id,
+		LockedBy: -1,
+	}
 }
 
 type Crossing struct {
