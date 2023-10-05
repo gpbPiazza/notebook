@@ -12,23 +12,24 @@ type Barrier struct {
 func NewBarrier(size int) *Barrier {
 	locker := &sync.Mutex{}
 	condLock := sync.NewCond(locker)
-	return &Barrier{size, size, locker, condLock}
+	return &Barrier{
+		count:      size,
+		total:      size,
+		locker:     locker,
+		condLocker: condLock,
+	}
 }
 
-func (b *Barrier) Wai() {
+func (b *Barrier) Wait() {
 	b.locker.Lock()
 	{
 		b.count -= 1
 		if b.count == 0 {
-			b.resetCount()
+			b.count = b.total
 			b.condLocker.Broadcast()
 		} else {
 			b.condLocker.Wait()
 		}
 	}
 	b.locker.Unlock()
-}
-
-func (b *Barrier) resetCount() {
-	b.count = b.total
 }
