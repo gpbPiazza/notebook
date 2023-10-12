@@ -10,9 +10,25 @@ import (
 
 const allLetters = "abcdefghijklmnopqrstuvwxyz"
 
-func getRFCLetters(rfcID int) (string, error) {
-	httpClient := &http.Client{}
-	url := fmt.Sprintf("https://www.rfc-editor.org/rfc/rfc%d.txt", rfcID)
+type RFCGateway struct {
+	URL        string
+	httpClient *http.Client
+}
+
+func NewRFCGateway() *RFCGateway {
+	return &RFCGateway{
+		httpClient: &http.Client{},
+		URL:        "https://www.rfc-editor.org",
+	}
+}
+
+type LettersGetter interface {
+	getRFCByID(rfcID int) (string, error)
+}
+
+func (rfc *RFCGateway) getRFCByID(rfcID int) (string, error) {
+	entryPoint := fmt.Sprintf("/rfc/rfc%d.txt", rfcID)
+	url := rfc.URL + entryPoint
 
 	request, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
@@ -20,7 +36,7 @@ func getRFCLetters(rfcID int) (string, error) {
 		return "", err
 	}
 
-	resp, err := httpClient.Do(request)
+	resp, err := rfc.httpClient.Do(request)
 	if err != nil {
 		fmt.Print(err)
 		return "", err
@@ -36,8 +52,8 @@ func getRFCLetters(rfcID int) (string, error) {
 	return string(body), nil
 }
 
-func countLetters(rfcID int, frequency *[26]int32) {
-	letters, _ := getRFCLetters(rfcID)
+func countLetters(rfcID int, frequency *[26]int32, lettersGetter LettersGetter) {
+	letters, _ := lettersGetter.getRFCByID(rfcID)
 
 	for _, b := range letters {
 		c := strings.ToLower(string(b))
@@ -50,10 +66,12 @@ func countLetters(rfcID int, frequency *[26]int32) {
 }
 
 func main() {
+	rFCGateway := NewRFCGateway()
+
 	var frequency [26]int32
 	start := time.Now()
 	for i := 1000; i <= 1200; i++ {
-		countLetters(i, &frequency)
+		countLetters(i, &frequency, rFCGateway)
 	}
 
 	elapsed := time.Since(start)
