@@ -55,6 +55,10 @@ func coutToTenFather() {
 	done := countToTen()
 	fmt.Println("countToTen() exited")
 	<-done // block until countToTen()'s goroutine is done
+
+	// note that we need to block the main thread until countToTen()'s goroutine completes.
+	// If we don't do this, the main thread will exit and all other goroutines will
+	// be stopped even if they haven't completed their task yet.
 }
 
 func main() {
