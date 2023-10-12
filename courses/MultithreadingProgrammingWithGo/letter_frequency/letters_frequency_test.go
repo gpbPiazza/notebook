@@ -29,8 +29,7 @@ func setupMockServer(code int, response json.RawMessage, mstimeOut ...int) *http
 			time.Sleep(time.Duration(timeout) * time.Millisecond)
 		})
 
-	mockServer := httptest.NewServer(handler)
-	return mockServer
+	return httptest.NewServer(handler)
 }
 
 func Test_getRFCLetters(t *testing.T) {
