@@ -10,33 +10,48 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func onlyReturndOods(odds chan int) {
-	fmt.Println("GOROUTINE RUNNING AND SLEEPING")
+func onlyReturndOods(odds chan *int) {
+	zeroValue := 0
+	var number *int
+	number = &zeroValue
+	fmt.Println("GOROUTINE RUNNING")
 	// time.Sleep(3 * time.Second)
-	fmt.Println("GOROUTINE RUNNING AND STOPED SLEEPING")
-	number := rand.Intn(100)
+	// fmt.Println("GOROUTINE RUNNING AND STOPED SLEEPING")
+	randInt := rand.Intn(100)
 
-	if (number % 2) == 0 {
+	if (randInt % 2) == 0 {
+		number = &randInt
 		odds <- number
 		return // Se tirar esse return da panic pois, a função pai fecha o canal antes de termianr a execução da rotina filha
 	}
-	odds <- 0
+	odds <- number
 }
 
 func doSomething() {
-	oddsChan := make(chan int)
-	fmt.Println("BEFORE CALL GOROUTINE")
+	type guardian struct {
+		Number *int
+	}
+	zapper := guardian{}
+	oddsChan := make(chan *int)
+	fmt.Println("BEFORE CALL GOROUTINE", "CHANNEL IS NEW VALUE?", oddsChan)
 	go onlyReturndOods(oddsChan)
 	fmt.Println("BEFORE ACCESS VALUE FROM CHANNEL")
 	result, ok := <-oddsChan
 	fmt.Println("AFTER ACCESS VALUE FROM CHANNEL")
 	if ok {
-		fmt.Println("channel open", ok, result)
+		zapper.Number = result
+		fmt.Println("channel open", ok, *result)
 	}
 	close(oddsChan)
+
+	// DEPOIS DE FECHAR UM CANAL QUE O VALOR DO MESMO É UM PONTEIRO O CANAL "FECHA O PONTEIRO TAMBÉM"
+	// TORNANDO O VALOR DO CANAL NIL! Pois o canal está fechado
+	// TUDO VAI PRO CARALHO DEPOIS DE FECHAR O CANAL E TENTAR ACESSAR ELE DENOVO. Valores e ponteiro antes disso
+	// Se mantem OK
 	result, ok = <-oddsChan
 	chanisNil := oddsChan == nil
-	fmt.Println("channel open", ok, result, "chan is nil?", chanisNil)
+	fmt.Println("guardian number is nil after close the channel?", *zapper.Number)
+	fmt.Println("channel IS CLOSED ->", !ok, "AND RESULT IS NIL ->", result, "chan is nil?", chanisNil)
 }
 
 func countToTen() chan bool {
