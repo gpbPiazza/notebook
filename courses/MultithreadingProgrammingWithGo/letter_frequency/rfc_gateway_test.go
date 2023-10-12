@@ -32,7 +32,7 @@ func setupMockServer(code int, response json.RawMessage, mstimeOut ...int) *http
 	return httptest.NewServer(handler)
 }
 
-func Test_getRFCLetters(t *testing.T) {
+func Test_RFCGateway(t *testing.T) {
 	type args struct {
 		rfcID int
 	}
@@ -67,7 +67,7 @@ func Test_getRFCLetters(t *testing.T) {
 			defer tt.mockServer.Close()
 			rfc := NewRFCGateway()
 			rfc.URL = tt.mockServer.URL
-			got, err := rfc.getRFCByID(tt.args.rfcID)
+			got, err := rfc.getRFC(tt.args.rfcID)
 
 			if (err != nil) != tt.wantErr {
 				t.Errorf("getRFCLetters() error = %v, wantErr %v", err, tt.wantErr)

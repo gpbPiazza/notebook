@@ -28,10 +28,10 @@ func NewRFCGateway() *RFCGateway {
 }
 
 type LettersGetter interface {
-	getRFCByID(rfcID int) (string, error)
+	getRFC(rfcID int) (string, error)
 }
 
-func (rfc *RFCGateway) getRFCByID(rfcID int) (string, error) {
+func (rfc *RFCGateway) getRFC(rfcID int) (string, error) {
 	entryPoint := fmt.Sprintf("/rfc/rfc%d.txt", rfcID)
 	url := rfc.URL + entryPoint
 
@@ -62,7 +62,7 @@ func (rfc *RFCGateway) getRFCByID(rfcID int) (string, error) {
 }
 
 func countLetters(rfcID int, frequency *[26]int32, lettersGetter LettersGetter) {
-	letters, _ := lettersGetter.getRFCByID(rfcID)
+	letters, _ := lettersGetter.getRFC(rfcID)
 
 	for _, b := range letters {
 		c := strings.ToLower(string(b))
