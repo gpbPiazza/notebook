@@ -115,3 +115,11 @@ func main() {
 // linear -> Processing took 9.31410875s
 
 // this shows the cost of lock and unlcok a peace of code.
+
+// The momment where you lock your mutex you give the execution time(control exeucition) in the hands
+// of the operation systems (OS), so the SO start doing the logic behind the mutex for exmaples checks if others
+// processes are usint that mutex and it might do other housekeeping tasks. The issue behind of that its because when
+// you give to the SO do the mutex operation ourt program are not executiong any more and we are easting CPU clocks
+// to have success with the lock operation. Once done the proccess of lock the mutex our program returns to processes again
+// and when he reaches the Unlock operation we have OS operation easting CPU clock again.
+// All this Lock and Unlock momements are moments where our program are not in execution.
