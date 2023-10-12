@@ -6,6 +6,8 @@ import (
 	"net"
 	"net/http"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -61,27 +63,38 @@ func (rfc *RFCGateway) getRFC(rfcID int) (string, error) {
 	return string(body), nil
 }
 
-func countLetters(rfcID int, frequency *[26]int32, lettersGetter LettersGetter) {
+func countLetters(rfcID int, frequency *[26]int32, lettersGetter LettersGetter, wg *sync.WaitGroup, locker *sync.Mutex) {
 	letters, _ := lettersGetter.getRFC(rfcID)
 
-	for _, b := range letters {
-		c := strings.ToLower(string(b))
-		index := strings.Index(allLetters, c)
-		if index < 0 {
-			continue
+	for j := 0; j < 25; j++ {
+		for _, b := range letters {
+			c := strings.ToLower(string(b))
+			index := strings.Index(allLetters, c)
+			if index < 0 {
+				continue
+			}
+			// locker.Lock()
+			// frequency[index] += 1
+			atomic.AddInt32(&frequency[index], 1)
+			// locker.Unlock()
 		}
-		frequency[index] += 1
 	}
+
+	wg.Done()
 }
 
 func main() {
 	rFCGateway := NewRFCGateway()
-
+	wg := sync.WaitGroup{}
+	locker := sync.Mutex{}
 	var frequency [26]int32
+	fmt.Println("Start")
 	start := time.Now()
 	for i := 1000; i <= 1200; i++ {
-		countLetters(i, &frequency, rFCGateway)
+		wg.Add(1)
+		go countLetters(i, &frequency, rFCGateway, &wg, &locker)
 	}
+	wg.Wait()
 
 	elapsed := time.Since(start)
 	fmt.Println("Done")
@@ -90,3 +103,15 @@ func main() {
 		fmt.Printf("%s -> %d\n", string(allLetters[i]), f)
 	}
 }
+
+// Using 1 times load
+// Processing took 42.203930625s linear proccess
+// Processing took 1.102896416s Using lock and unlock in multithread
+// Processing took 506.188709ms using atomic variables in multithread
+
+// Using more 25 times load
+// atomic variables -> Processing took 6.7137705s
+// lock and unlock -> Processing took 23.287942666s
+// linear -> Processing took 9.31410875s
+
+// this shows the cost of lock and unlcok a peace of code.
