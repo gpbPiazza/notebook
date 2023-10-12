@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"net"
 	"net/http"
 	"strings"
 	"time"
@@ -15,10 +16,14 @@ type RFCGateway struct {
 	httpClient *http.Client
 }
 
+const Timeout = time.Millisecond * 1500
+
 func NewRFCGateway() *RFCGateway {
 	return &RFCGateway{
-		httpClient: &http.Client{},
-		URL:        "https://www.rfc-editor.org",
+		httpClient: &http.Client{
+			Timeout: Timeout,
+		},
+		URL: "https://www.rfc-editor.org",
 	}
 }
 
@@ -37,6 +42,10 @@ func (rfc *RFCGateway) getRFCByID(rfcID int) (string, error) {
 	}
 
 	resp, err := rfc.httpClient.Do(request)
+	if err, ok := err.(net.Error); ok && err.Timeout() {
+		return "", err
+	}
+
 	if err != nil {
 		fmt.Print(err)
 		return "", err
