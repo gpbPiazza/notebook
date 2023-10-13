@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"strings"
 	"sync"
-	"sync/atomic"
 	"time"
 )
 
@@ -74,13 +73,13 @@ func countLetters(rfcID int, frequency *[26]int32, lettersGetter LettersGetter, 
 				continue
 			}
 			// locker.Lock()
-			// frequency[index] += 1
-			atomic.AddInt32(&frequency[index], 1)
+			frequency[index] += 1
+			// atomic.AddInt32(&frequency[index], 1)
 			// locker.Unlock()
 		}
 	}
 
-	wg.Done()
+	// wg.Done()
 }
 
 func main() {
@@ -91,10 +90,10 @@ func main() {
 	fmt.Println("Start")
 	start := time.Now()
 	for i := 1000; i <= 1200; i++ {
-		wg.Add(1)
-		go countLetters(i, &frequency, rFCGateway, &wg, &locker)
+		// wg.Add(1)
+		countLetters(i, &frequency, rFCGateway, &wg, &locker)
 	}
-	wg.Wait()
+	// wg.Wait()
 
 	elapsed := time.Since(start)
 	fmt.Println("Done")
@@ -105,13 +104,13 @@ func main() {
 }
 
 // Using 1 times load
-// Processing took 42.203930625s linear proccess
+// Processing took 6.073544167s linear proccess
 // Processing took 1.102896416s Using lock and unlock in multithread
 // Processing took 506.188709ms using atomic variables in multithread
 
 // Using more 25 times load
-// atomic variables -> Processing took 6.7137705s
-// lock and unlock -> Processing took 23.287942666s
+// multithread atomic variables -> Processing took 6.7137705s
+// multithread lock and unlock -> Processing took 23.287942666s
 // linear -> Processing took 9.31410875s
 
 // this shows the cost of lock and unlcok a peace of code.
