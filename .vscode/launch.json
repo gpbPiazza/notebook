@@ -6,7 +6,7 @@
           "type": "go",
           "request": "launch",
           "mode": "auto",
-          "program": "${workspaceFolder}/courses/MultithreadingProgrammingWithGo/letter_frequency/letters_frequency.go",
+          "program": "${workspaceFolder}/codes/error_format.go",
           "buildFlags": "-tags dynamic",
       }
   ]
