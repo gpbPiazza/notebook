@@ -51,6 +51,6 @@ func testandoEncode() {
 	fmt.Println(params.Encode())
 }
 
-func main() {
-	testandoEncode()
-}
+// func main() {
+// 	testandoEncode()
+// }

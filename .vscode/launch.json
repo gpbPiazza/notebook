@@ -6,7 +6,7 @@
           "type": "go",
           "request": "launch",
           "mode": "auto",
-          "program": "${workspaceFolder}/codes/error_format.go",
+          "program": "${workspaceFolder}/codes/ctx_collision_key.go",
           "buildFlags": "-tags dynamic",
       }
   ]
