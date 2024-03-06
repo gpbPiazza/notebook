@@ -17,3 +17,7 @@ By Mark Richards and Neal Ford
 4. What is the first Law of Software Architecture?
     - There are no right or wrong answers in architecture only trade-offs.
 ### Chapter 2: Architecture Thinking
+1. Describe the traditional approach of architecture versus development and explain why that approach no longer works.
+2. List the three levels of knowledge in the knowledge triangle and provide and examples of each.
+3. Why is it more important for an architect to focus on technical breadth rather than technical depth?
+4. What are some of the ways of maintaining your technical depth and remaining hands-on as an architect?
