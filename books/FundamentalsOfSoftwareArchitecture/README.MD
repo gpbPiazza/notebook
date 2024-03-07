@@ -26,4 +26,15 @@ By Mark Richards and Neal Ford
 4. What are some of the ways of maintaining your technical depth and remaining hands-on as an architect?
     - Proof-of-concepts(POCs), tackling the low priority user stories or work on bug fixes both in an iteration and do code reviews.
 ### Chapter 3: Modularity
-    
+1. What is meant by the term connascence?
+    - "Two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system" - Meilier Page-Jones(1996-Dorset-House)
+2. What is the difference between static and dynamic connascence?
+    - Static connascence refers to the source-code level coupling, for example multiple components depends on a specific entity type. And dynamic connascence refers to the connascence in the execution time, for example the order execution of a method is a dynamic connascence.
+3. What does connascence of type mean? Is it static or dynamic connascence?
+    - Is a static connascence. Connascence of type is when multiple components depends on a specific entity type in order to work
+4. What is the strongest form of connascence?
+    - Dynamic connascence of type identity, when multiple system must reference to the same entity in the execution time.
+5. What is the weakest form of connascence?
+    - Static connascence of type name, when multiple components must agree on the name of an entity.  
+6. Which is preferred within a code base-static or dynamic connascence?
+    - Static connascence, because the static connascence is much more in the control of the architect and developer team to refactor to a better type of coupling than dynamic, nowadays, the lack of tools to measure dynamic connascence is high and analyze e measure dynamic connascence is much harder than static.
