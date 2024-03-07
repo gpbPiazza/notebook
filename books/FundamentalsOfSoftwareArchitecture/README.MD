@@ -18,6 +18,12 @@ By Mark Richards and Neal Ford
     - There are no right or wrong answers in architecture only trade-offs.
 ### Chapter 2: Architecture Thinking
 1. Describe the traditional approach of architecture versus development and explain why that approach no longer works.
+    - The traditional approach is very similar with the waterfall project management, where the architecture do his work about the requirements and once done he passes to the development team what should be done and don't iterate about the architecture with the development team again. This causes a unidirectional arrow of interactions, resulting in architecture decisions that will never be developed by the team and some development decisions will never change the architecture.
 2. List the three levels of knowledge in the knowledge triangle and provide and examples of each.
+    - Stuff you, example: is the technologies/knowledge that you use in your daily basis to do your job. Stuff you know you don't know, example: is the technologies/knowledge that you have heard about it but never used or just know that exists. Stuff you don't know you don't know, example: is all the technologies/knowledge that could solve the problem that you are facing, but you even know that such thing exists.
 3. Why is it more important for an architect to focus on technical breadth rather than technical depth?
+    - Because an architect must make decisions that match capabilities to technical constraints. For example is much more important to an architect to know that exist 7 types of cache products and their uses cases and pros and cons, that be a specialist at one cache product, each project has different requirements and problems to solve, so he must know each product fits better in these constraints.
 4. What are some of the ways of maintaining your technical depth and remaining hands-on as an architect?
+    - Proof-of-concepts(POCs), tackling the low priority user stories or work on bug fixes both in an iteration and do code reviews.
+### Chapter 3: Modularity
+    
