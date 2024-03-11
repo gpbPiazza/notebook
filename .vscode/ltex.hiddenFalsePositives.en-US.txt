@@ -1,2 +1,4 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QStuff you don't know you don't know, example: is all the technologies/knowledge that could solve the problem that you are facing, but you even know that such thing exists.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\"Two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system\" - Meilier Page-Jones(1996-Dorset-House)\nWhat is the difference between static and dynamic connascence?\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QProvide an examples of a cross-cutting chracteristic.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QProvide an example of a cross-cutting characteristic.\\E$"}

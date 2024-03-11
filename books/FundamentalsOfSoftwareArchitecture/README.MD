@@ -38,3 +38,17 @@ By Mark Richards and Neal Ford
     - Static connascence of type name, when multiple components must agree on the name of an entity.  
 6. Which is preferred within a code base-static or dynamic connascence?
     - Static connascence, because the static connascence is much more in the control of the architect and developer team to refactor to a better type of coupling than dynamic, nowadays, the lack of tools to measure dynamic connascence is high and analyze e measure dynamic connascence is much harder than static.
+### Chapter 4: Architecture Characteristics Defined
+1. What three criteria must an attribute meet to be considered an architecture characteristic?
+    - Specifies a nondomain design consideration; Influences some structural aspect of the design; Is critical or important to application success.
+2. What is the difference between an implicit characteristic and an explicit one? Provide an example of each
+    - Implicit architecture characteristics is the ones that rarely appear in the requirements document, yet they are necessary for project success. For examples, security no one wants a vulnerable application but no one specifies how secure should be the app.
+3. Provide an example of an operational characteristic.
+    - Operational characteristic is all characteristics that a system will have to ensure responsiveness to the client an example: Recoverability
+4. Provide an example of a structural characteristic.
+    - Structural characteristic is all characteristics that ensure code quality an example: Maintainability and Extensibility
+5. Provide an example of a cross-cutting characteristic.
+    - Cross-cutting characteristic is all characteristics that ensure security an example: Privacy and Authorization.
+6. Which architecture characteristic is more important to strive for availability or performance?
+    - It depends on the requirements, if for the business is more important the system is need to be available 24/7 in case in any failure, so we should strive for availability, but if it is capacity of low response time in any case should be performance.
+

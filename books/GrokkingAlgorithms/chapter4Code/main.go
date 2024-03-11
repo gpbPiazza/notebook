@@ -83,7 +83,7 @@ func quicksort(nums []int) []int {
 	return []int{}
 }
 
-func findUniqueVals(nums []int) []int {
+func findDuplicatedNums(nums []int) []int {
 	var result []int
 	mapCheckedNums := make(map[int]int, 0)
 	mapDuplicatedNums := make(map[int]int, 0)

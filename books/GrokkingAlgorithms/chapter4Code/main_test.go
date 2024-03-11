@@ -73,7 +73,7 @@ func Test_findUniqueVals(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := findUniqueVals(tt.nums)
+			got := findDuplicatedNums(tt.nums)
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("findUniqueVals() = %v, want %v", got, tt.want)
 			}
