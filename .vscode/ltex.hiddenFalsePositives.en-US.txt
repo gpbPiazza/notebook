@@ -2,3 +2,6 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\"Two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system\" - Meilier Page-Jones(1996-Dorset-House)\nWhat is the difference between static and dynamic connascence?\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QProvide an examples of a cross-cutting chracteristic.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QProvide an example of a cross-cutting characteristic.\\E$"}
+{"rule":"LARGE_NUMBER_OF","sentence":"^\\QScalability is the ability to handle a large number of concurrent users without serious performance degradation\nYou find out that you company is about to undergo several major acquisitions to significantly increase its customer base.\\E$"}
+{"rule":"LARGE_NUMBER_OF","sentence":"^\\QScalability is the ability to handle a large number of concurrent users without serious performance degradation, therefore elasticity is the ability to handle bursts of requests.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QChapter 5: Identifying Architecture Characteristics\nGive a reason why it is good practice to limit the number of characteristics(\"-ilities\") an architecture should support.\\E$"}

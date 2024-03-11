@@ -51,4 +51,16 @@ By Mark Richards and Neal Ford
     - Cross-cutting characteristic is all characteristics that ensure security an example: Privacy and Authorization.
 6. Which architecture characteristic is more important to strive for availability or performance?
     - It depends on the requirements, if for the business is more important the system is need to be available 24/7 in case in any failure, so we should strive for availability, but if it is capacity of low response time in any case should be performance.
-
+### Chapter 5: Identifying Architecture Characteristics
+1. Give a reason why it is good practice to limit the number of characteristics("-ilities") an architecture should support.
+    - If an architecture does all characteristics she does nothing very well, this will lead in a generic solution means that architecture will not success in the core requirements for the business. This repents because each architecture characteristics impact on each other for example when you choose to support security probably you will have to trade of by performance because you probably you're going to have to do more encryption for each data response because encryption is expensive and takes time.
+2. True or False: most architecture characteristics come from business requirements and user stories.
+    - False, most architecture characteristics comes from the architect interpretation of the requirements document or business stakeholder conversation. 
+3. If a business stakeholder state that time-to-market(i.e., getting new feature and bug fixes pushed out to users as fast as possible) is the most important business concern which architecture characteristics would the architecture need to support?
+    - Testability+deployability+agility.
+4. What is the difference between scalability and elasticity?
+    - Scalability is the ability to handle a large number of concurrent users without serious performance degradation, therefore elasticity is the ability to handle bursts of requests. Elasticity look for metrics like burst of users on time and scalability looks for performance of concurrent users. Some time a system can be Scalable but not elastic to handle bursts requests.
+5. You find out that your company is about to undergo several major acquisitions to significantly increase its customer base. Which architectural characteristics should you be worried about?
+    - Scalability the ability to handle many concurrent users on time. Also, I would be worried with Availability and deployability as architect I want to ensure that my system will not stop delivery feature because the amount of new users and the development process should not change because of that.
+### Chapter 6: Measuring and Governing Architecture Characteristics
+1. 
