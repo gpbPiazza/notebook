@@ -10,3 +10,4 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf we assume thata de admin system and the customer system are independently deployable units therefore this architecture has multiple quanta.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf we assume the admin system and the customer system are independently deployable units therefore this architecture has multiple quanta.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf the both systems sharas the same database and assuming that both application depends on the database to stay health we are going to have only one quantum\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QIn a microservices architecture, each microservice can be considered a component.\\E$"}
