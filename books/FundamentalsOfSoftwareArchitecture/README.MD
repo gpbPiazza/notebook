@@ -91,5 +91,27 @@ By Mark Richards and Neal Ford
 5. What is the entity trap? Why is it not a good approach for component identification?
     - Entity trap is antipattern when an architect incorrectly identifies the database relationships as workflows in the application, this correspondence that rarely manifests in the real world. Components created by this pattern will result in coarse-grained components where it will not give any useful guidance to developers team.
 6. When might you choose the workflow approach over the Actor/Actions approach when identifying core components?
-    - 
-### Chapter 9: 
+    - By the book you should choose workflow approach when you are not in the team that not use waterfall approach to software development but in my opinion this not justify enough to say that Actor/Actions has something similar to waterfall. I would say that you should choose workflow approach when you have a good knowledge about the domain or a business specialist very close to you and when you don't have this knowledge you should go Actor/actions approach, its more easy to start from nothing identifying actor and actions.
+### Chapter 9: Architecture style
+1. List the eight fallacies of distributed computing
+    - The network is reliable, latency is zero, bandwidth is infinite, the network is secure, topology never changes, there is only one administrator, transport cost is zero, the network is homogeneous.
+2. Name three challenges that distributed architecture have that monolith architecture don't.
+    - By the book: Distributed logging, distributed transactions and contract maintenance and versioning. You can have a distributed system without distributed transactions but is very hard to do that you should avoid distributed transactions more than nothing, you also have contract maintenance and versions as challenge in monolith too.
+3. What is stamp coupling?
+    - Stamp coupling is data structure coupling, in a distributed architecture when a system needs to call other system to fill a request data, but the requests only needs one or two properties of the response and in these properties we can say the requested has a stamp coupling on those properties.
+4. What are some ways of addressing stamp coupling?
+    - Create private and specialist endpoints to only return the needed data, or use other high level protocol such as GraphQL. Regardless of the technique used, we should ensure the minimal amount of data is passed between services or distributed systems.
+### Chapter 10: Layered Architecture Style
+1. What is the difference between an open layer and a closed layer?
+    - Each layer in the layered architecture style can be either closed or open. Closed layers mean that as a request moves top-down from layer to layer, the request cannot skip any layer, but rather must go thought the layer immediately below it to get to the next layer. And in the open architecture style this restriction is not needed, and the top layer levels can jump some layer to get what is needed, for example: the presentation layer only needs DB data and nothing more, in the open style probably the presentation layer would call the persistence layer directly, jumping the business layer.
+2. Describe the layers of isolation concept and what the benefits are of this concept.
+    - The layer of isolation concept means that changes made in one layer of the architecture generally don't impact or affect components on other layers, providing the contracts between those layers remain unchanged. Each layer should be Independent of the others having no knowledge of the implementation of the other layer.
+3. What is the architecture sinkhole antipattern?
+    - Is when you have a request that pass through all layers presentation, business and persistence and database layers and only thing that happened is the data retrieve by the persistence layer, so in this call the business layer is unnecessary resulting in both memory consumption and performance.
+4. What are some main architecture characteristics that would drive you to use a layered architecture?
+    - Company context: As starting point when it is not known yet exactly which architecture style will ultimately be used. Also is a good architecture for being startups that don't have so much knowledge about the business that they are building.
+    - Architecture characteristics: Development cost and learning curve resulting in a very simple architecture. 
+5. Why isn't testability well support in the layered architecture style?
+    - Because the author simple said that as a monolith application get a lot of changes this makes test difficult. I totally disagree on this one, a monolith application with layered architecture style only became difficult to test when you poor isolation levels between layers and a high level of coupling between entities. But, the case of one front end, one backend and one database are the best scenarios to make integrations tests and end-to-end tests, as you start adding third party APIs into this monolith this kind of testing became very difficult to do.
+6. Why isn't agility well-supported in the layered architecture style?
+    - Because reliability is not a very well-supported characteristic and as the authors assumed that testability is not well-supported to the sum of hard to deploy and hard to test will result in an architecture that slow down the teams productive.
