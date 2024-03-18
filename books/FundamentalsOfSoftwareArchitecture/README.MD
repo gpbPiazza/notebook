@@ -114,4 +114,19 @@ By Mark Richards and Neal Ford
 5. Why isn't testability well support in the layered architecture style?
     - Because the author simple said that as a monolith application get a lot of changes this makes test difficult. I totally disagree on this one, a monolith application with layered architecture style only became difficult to test when you poor isolation levels between layers and a high level of coupling between entities. But, the case of one front end, one backend and one database are the best scenarios to make integrations tests and end-to-end tests, as you start adding third party APIs into this monolith this kind of testing became very difficult to do.
 6. Why isn't agility well-supported in the layered architecture style?
-    - Because reliability is not a very well-supported characteristic and as the authors assumed that testability is not well-supported to the sum of hard to deploy and hard to test will result in an architecture that slow down the teams productive.
+    - Because deployability is not a very well-supported characteristic, for every change that needs to be release you have to change all available instances, and as the authors assumed that testability is not well-supported to the sum of hard to deploy and hard to test will result in an architecture that slow down the teams productive.
+### Chapter 11: Pipeline Architecture
+1. Can pipes be bidirectional in a pipeline architecture?
+    - It is possible to make bidirectional pipelines, but the recommendation is to make unidirectional and point-top-point for performance, simplicity that will encourage composition.
+2. Name the four types o f filters and their purpose.
+    Filters are self-contained, independent of other filters and generally stateless, composite tasks should be handled by a sequence of filter rather than a single one.
+    - Producer: The starting point of a process, outbound only, sometime called the source. Transformer: Accepts input, optionally performs a transformation on some or all of the data, then forwards it to the outbound pipe. Tester: Accepts input test one or more criteria, then optionally produces output, based on the test. Consumer: The termination point for the pipeline flow. Consumer sometimes persist the final results of the pipeline process to a database, or they may display the final results on a user interface screen.
+3. Can a filter send data out through multiple pipes?
+    - Yes, in the book example workflow show us the `DurationFilter(tester)` Sending data to `DurationCalculator(transformer)` and to `UptimeFilter(tester)` what indicates multiples pipes.
+4. Is the pipeline architecture style technically partitioned or domain partitioned?
+    - Technical partitioned
+5. In what way does the pipeline architecture support modularity?
+    - Ensure each filter has a purpose, one directional data flow, self-contianed and independent of others are all characteristics encourages modularity and separation of concerns between the various filters types and transformers.
+6. Provide two examples of the pipeline architecture style.
+    - ETL(extract, transform and load) - a common patterns to data lakes with many sources of data. Apache camel.
+### Chapter 12: Pipeline Architecture
