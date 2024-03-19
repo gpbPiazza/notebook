@@ -15,3 +15,4 @@
 {"rule":"SOME_OF_THE","sentence":"^\\QWhat are some of the tools and frameworks that can be used to manage plug-ins?\\E$"}
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QNet)\nWhat would you do if you had a third-party plug-in that didn't conform to the standard plug-in contract in the core system?\\E$"}
 {"rule":"BEEN_PART_AGREEMENT","sentence":"^\\QMicrokernel it is be both, depend on the implementation\nWhy is the microkernel architecture always a single architecture quantum?\\E$"}
+{"rule":"DO_VBZ","sentence":"^\\QDo domain services require a container (such as docker) to run?\\E$"}

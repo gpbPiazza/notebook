@@ -146,3 +146,20 @@ By Mark Richards and Neal Ford
     - (By the book →) Because all requests must go through the core system to get to independent plug-in components. (Explaining why the authors are saying this) As the definitions of quantum says "An independently deployable artifact with high functional cohesion and synchronous connascence", if you have microkernel architecture style where each plug-in can be an "An independently deployable artifact" and also has his own database and as architecture suggest the plug-in must be independent plug-in components satisfying the only thing that this style don't satisfy very well is the "high functional cohesion" because has to pass through the core system first to reach de plug-ins and just because of that the authors says that always will be a single quantum. But in my opinion if you choose use a microkernel architecture with distributed plug-ins components you're choosing almost all trade-offs of microservices architecture style, consider this style as a transitioning one to the another styles. 
 8. What is domain/architecture isomorphism?
     - Architecture isomorphism = "how close toes the shape of the architecture match the shape of the problem domain?". How you translate very well the problem domains to the right architecture.
+### Chapter 13: Service-Based Architecture
+1. How many services are there in a typical service-based architecture?
+    - Because the services typically share a single monolith database, the number of services within an application context generally range between 4 and 12.
+2. Do you have to break apart a database in service-based architecture?
+    - Is not required, usually they share a single monolith database. This database coupling represents an issue where it is not done properly can a table schema change can result in an impact to every service. 
+3. Under what circumstances might you want to break apart a database?
+    - You want to change to a microservice architecture and your services are very well-defined so the entities tables don't have many dependencies making easy to migrate to a separate database server.
+4. What technique can you use to manage database changes within a service-based architecture?
+    - Using a single library for each entity schema making the impact of a change only in the services that are using the schema changed.
+5. Do domain services require a container (such as docker) to run?
+    - No.
+6. Which architecture characteristics are well-supported by the service-based architecture style?
+    - Modularity, overall cost, fault tolerance, testability, deployability and reliability. 
+7. Why isn't elasticity well-supported in a service-based architecture?
+    - 
+8. How can you increase the number of the architecture quanta in a service-based architecture?
+    - 
