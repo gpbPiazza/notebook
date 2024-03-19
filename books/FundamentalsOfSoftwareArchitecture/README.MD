@@ -129,4 +129,20 @@ By Mark Richards and Neal Ford
     - Ensure each filter has a purpose, one directional data flow, self-contianed and independent of others are all characteristics encourages modularity and separation of concerns between the various filters types and transformers.
 6. Provide two examples of the pipeline architecture style.
     - ETL(extract, transform and load) - a common patterns to data lakes with many sources of data. Apache camel.
-### Chapter 12: Pipeline Architecture
+### Chapter 12: Microkernel Architecture
+1. What is another name for the microkernel architecture style?
+    - Plug-in architecture. 
+2. Under what situations is it ok for plug-in components to be dependent on other plug-in components?
+    - There is no situation where this is ok, when you are doing this you are breaking the core idea behind this architecture style design a solid core system where plug-ins are literally just plug-ins and can have their own domain. 
+3. What are some of the tools and frameworks that can be used to manage plug-ins?
+    - Open service gateway(Java), Penrose(Java) and Prism(.Net).
+4. What would you do if you had a third-party plug-in that didn't conform to the standard plug-in contract in the core system?
+    - Probably if is a third-party plug-in is others team, or companies trying to use the core system develop by my team. So assuming this conditions, probably I would develop a system where have simple public interface and very well written messages errors for integration for this interface, providing system that any developer can fix what is wrong with the integration with our core system. If the public interface is not satisfied the integration cannot happen.   
+5. Provide two example of the microkernel architecture style.
+    - Monolith microkernel and distributed microkernel where plug-ins can be segregated deployable units. Examples of usages: Eclipse IDE and Jenkins
+6. Is the microkernel architecture style technically partitioned or domain partitioned?
+    - Microkernel can be both, technically partitioned or domain partitioned.
+7. Why is the microkernel architecture always a single architecture quantum?
+    - (By the book →) Because all requests must go through the core system to get to independent plug-in components. (Explaining why the authors are saying this) As the definitions of quantum says "An independently deployable artifact with high functional cohesion and synchronous connascence", if you have microkernel architecture style where each plug-in can be an "An independently deployable artifact" and also has his own database and as architecture suggest the plug-in must be independent plug-in components satisfying the only thing that this style don't satisfy very well is the "high functional cohesion" because has to pass through the core system first to reach de plug-ins and just because of that the authors says that always will be a single quantum. But in my opinion if you choose use a microkernel architecture with distributed plug-ins components you're choosing almost all trade-offs of microservices architecture style, consider this style as a transitioning one to the another styles. 
+8. What is domain/architecture isomorphism?
+    - Architecture isomorphism = "how close toes the shape of the architecture match the shape of the problem domain?". How you translate very well the problem domains to the right architecture.

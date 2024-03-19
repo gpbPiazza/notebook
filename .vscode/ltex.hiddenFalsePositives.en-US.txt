@@ -11,3 +11,7 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf we assume the admin system and the customer system are independently deployable units therefore this architecture has multiple quanta.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf the both systems sharas the same database and assuming that both application depends on the database to stay health we are going to have only one quantum\\E$"}
 {"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QIn a microservices architecture, each microservice can be considered a component.\\E$"}
+{"rule":"AGREEMENT_SENT_START","sentence":"^\\QUnder what situations is it ok for plug-in components to be dependent on other plug-in components?\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QWhat are some of the tools and frameworks that can be used to manage plug-ins?\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QNet)\nWhat would you do if you had a third-party plug-in that didn't conform to the standard plug-in contract in the core system?\\E$"}
+{"rule":"BEEN_PART_AGREEMENT","sentence":"^\\QMicrokernel it is be both, depend on the implementation\nWhy is the microkernel architecture always a single architecture quantum?\\E$"}
