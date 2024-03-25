@@ -160,6 +160,23 @@ By Mark Richards and Neal Ford
 6. Which architecture characteristics are well-supported by the service-based architecture style?
     - Modularity, overall cost, fault tolerance, testability, deployability and reliability. 
 7. Why isn't elasticity well-supported in a service-based architecture?
-    - 
+    - As the number of services increase the database server start to be the bottleneck to handle too many concurrent users request, more functionality is replicated than with finer-grained services (such as microservices) and as such is not as efficient in terms of machine resources and not as cost-effective.
 8. How can you increase the number of the architecture quanta in a service-based architecture?
+    - Increasing the number of user interfaces by domain, each of domain will represent an amount of backend services and one database resulting in many quanta.
+### Chapter 14: Event-Driven Architecture Style
+1. What are the primary difference between the broker and mediator topologies?
+    - Centralization of event management, the broker differs from the mediator in that there is no central event mediator.
+2. For better workflow control would you use the mediator or broker topology?
+    - The mediator topology, this topology can handle a required order of event broadcast and event consuming by ensuring that such order of events broadcasted are published with success and the mediator can move on in the orchestrations and coordination of events.
+3. Does the broker topology usually leverage a publish-and-subscribe model with topics or a point-to-point model with queues?
+    - Publish-and-subscribe model with topics, in this topology each service broadcast his own events and the services in interests in such topic should process the event.
+4. Name two primary advantage of asynchronous communications
+    - Increase the overall responsiveness and decoupling.
+5. Given an example of typical request within the request-based model.
+    - A HHTP request using REST pattern, for example, the order-service must include in his response all products names and cost by each product in a request Get by ID order, so the order-service request to the product-service by REST request. (I dont know if a should include path and response examples here..)
+6. Given an example of typical request in an event-based model.
     - 
+7.
+8.
+9.
+10.
