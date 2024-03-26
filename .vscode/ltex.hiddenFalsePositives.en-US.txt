@@ -16,3 +16,7 @@
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QNet)\nWhat would you do if you had a third-party plug-in that didn't conform to the standard plug-in contract in the core system?\\E$"}
 {"rule":"BEEN_PART_AGREEMENT","sentence":"^\\QMicrokernel it is be both, depend on the implementation\nWhy is the microkernel architecture always a single architecture quantum?\\E$"}
 {"rule":"DO_VBZ","sentence":"^\\QDo domain services require a container (such as docker) to run?\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QWhat are three main driving architecture characteristics for using event driven architecture?\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QWhat are some of the architecture characteristics that are note well-supported in event driven architecture?\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QWhat are some of the techniques for preventing data loss when sending and receiving messages from a queue?\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor a service he should persist the messages not juts in memory but also in a physical data store(fileSystem, database, others...)\nWhat are three main driving architecture characteristics for using event driven architecture?\\E$"}

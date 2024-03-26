@@ -173,10 +173,35 @@ By Mark Richards and Neal Ford
 4. Name two primary advantage of asynchronous communications
     - Increase the overall responsiveness and decoupling.
 5. Given an example of typical request within the request-based model.
-    - A HHTP request using REST pattern, for example, the order-service must include in his response all products names and cost by each product in a request Get by ID order, so the order-service request to the product-service by REST request. (I dont know if a should include path and response examples here..)
+    - A HHTP request using REST pattern, for example, the order-service must include in his response all products names and cost by each product in a request Get by ID order, so the order-service request to the product-service by REST request. (I don't know if I should include path and response examples here.)
 6. Given an example of typical request in an event-based model.
-    - 
-7.
-8.
-9.
-10.
+    - A service input a message in a queue or an event in a topic and in this topic or queue has one purpose explicit a necessity, we're going to have two queue or topics one to request others to response, so each service can ask each other data by the queue or topics.
+7. What is the difference between an initiating event and a processing event in event-driven architecture?
+    - Processing event occurs when other service has already emitted an event, so the consumer of an event will start a process by this trigger and in initiating usually means that a service finish a process and would like to notify his alterations or ask other services to start the process by event. 
+8. What are some of the techniques for preventing data loss when sending and receiving messages from a queue?
+    - For a service he should persist the messages not juts in memory but also in a physical data store(fileSystem, database, others...) and to brokers when receive a message he should always persist this message in a physical data store too so when he goes down he can ask what message were in the queue at the moment that he crashed. A broker should just dequeues a message only if the consumer service response with success the message received.
+9. What are three main driving architecture characteristics for using event driven architecture?
+    - Fault tolerance, Performance and Scalability
+10. What are some of the architecture characteristics that are note well-supported in event driven architecture?
+    - Simplicity and testability. Maintaining an entire system built with event communication is harder than a request based model due the necessity to integrate to many systems, nondeterministic and dynamic event flows, also test the integration between services is harder, you only will achieve some kind of automation test to test integration between services in test environment deployed, to have this kind of tooling is expensive and hard to maintain.
+### Chapter 15: Space-Based Architecture
+1. Where does space-based architecture get its name from?
+    - Tuple space, a technique of using multiple parallel processors communicating through shared memory.
+2. What is primary aspect of space-based architecture that differentiates it from other architecture styles?
+    - Couple of components dedicated only to the architecture works, we have a process unit, in memory data grid, data replication engine, data reader, data writer, deployment manager, data grid, processing grid and messaging grid all these components are necessary to support the idea of shared memory and prevent to access database directly providing an enormous performance, scalability and elasticity.
+3. Name the four components that make up the virtualized middleware within a space-based architecture.
+    - Deployment manager, data grid, processing grid and messaging grid
+4. What is the role of the messaging grid?
+    - Manages the input request and session state. When a request comes into the virtualized middleware the messaging grid determines which active processing components are available to receive the request and forwards the request to one of those processing units.
+5. What is the role of a data writer in space-based architecture?
+    - Receive messages (async communication) from the data pumps and process units and updates the database state.
+6. Under what conditions would a service need to access data through the data reader?
+    - A crash of all processing units instances of the same named cache, a redeployment of all processing units withing the same named cache, or retrieving archive data not contained in the replicated cache
+7. Does a small cache size increase or the decrease the chances of a data collision?
+    - Decrease due the inversely proportional relationship between cache size and Collision Rate in the equation CR = N * ((U*Rˆ2)/S)*RL where S is the size of the cache, number of rows.
+8. What is the difference between a replicated cache and a distributed cache? Which one is typically used in space-based architecture?
+    - Replicated cache is when each processing unit(instances) has in memory data cache and distributed cache is when you delegate to a dedicated server cache to do this task, so your processing units became stateless. The decision about each strategy to use will depends on the requirements of the system if you're prioritizing consistency is better goes to with distributed, also with you leading with a large amount of data to cache certainly you will need to use the distributed strategy due the cost of use high memory instances. So my recommendation would be, build your processing units agnostic of the type cache they are using if is replicated or distributed shouldn't matter to the process, starts with replicated when all things a small, and you have low Collision Rates, when the Collision Rates starts to grow consider to change to distributed cache server.
+9. List three of the most strongly supported architecture characteristics in space-based architecture.
+    - Performance, Scalability and Elasticity.
+10. Why does testability rate is so low for space-based architecture?
+    - In terms of unit testing is not a problem, but perform integration testes and have environment ready to test all conditions its complex due the cache, not cached data and also the data async writing, other aspect to test is hard is test the high levels of scalability and elasticity supported in this architecture. Support tooling to make all this process fast will be expensive to develop and also to maintain.
