@@ -28,19 +28,19 @@ func SliceToList(vals []int) *Node {
 }
 
 // Add concat new Node to the last node in the list and return the head of the list
-func (l *Node) Add(val int) *Node {
+func (n *Node) Add(val int) *Node {
 	newNode := &Node{Val: val}
-	iterator := l
+	iterator := n
 	for iterator.Next != nil {
 		iterator = iterator.Next
 	}
 	iterator.Next = newNode
-	return l
+	return n
 }
 
-func (l *Node) FindMiddleNode() *Node {
-	endNode := l
-	middleNode := l
+func (n *Node) FindMiddleNode() *Node {
+	endNode := n
+	middleNode := n
 	for endNode != nil && endNode.Next != nil {
 		endNode = endNode.Next.Next
 		middleNode = middleNode.Next
@@ -49,8 +49,8 @@ func (l *Node) FindMiddleNode() *Node {
 	return middleNode
 }
 
-func (l *Node) DeleteMiddleNode() *Node {
-	endNode := l
+func (n *Node) DeleteMiddleNode() *Node {
+	endNode := n
 	middleIndex := 0
 	for endNode != nil && endNode.Next != nil {
 		endNode = endNode.Next.Next
@@ -58,13 +58,13 @@ func (l *Node) DeleteMiddleNode() *Node {
 	}
 
 	if middleIndex == 0 {
-		l.Next = nil
-		return l
+		n.Next = nil
+		return n
 	}
 
 	preivousIndexFromMiddle := middleIndex - 1
 
-	iterator := l
+	iterator := n
 	index := 0
 	for index < preivousIndexFromMiddle {
 		iterator = iterator.Next
@@ -72,5 +72,5 @@ func (l *Node) DeleteMiddleNode() *Node {
 	}
 	iterator.Next = iterator.Next.Next
 
-	return l
+	return n
 }

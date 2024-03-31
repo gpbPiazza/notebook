@@ -192,3 +192,7 @@ func Test_DeleteMiddleNode(t *testing.T) {
 		})
 	}
 }
+
+func Test_Add(t *testing.T) {
+
+}
