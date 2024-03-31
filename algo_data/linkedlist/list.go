@@ -74,3 +74,25 @@ func (n *Node) DeleteMiddleNode() *Node {
 
 	return n
 }
+
+func (n *Node) SortByOddIndexes() *Node {
+	if n.Next == nil {
+		return n
+	}
+
+	odd := n
+	oddHead := n
+	even := n.Next
+	evenHead := n.Next
+
+	for even != nil && even.Next != nil {
+		odd.Next = even.Next
+		odd = even.Next
+
+		even.Next = even.Next.Next
+		even = odd.Next
+	}
+	odd.Next = evenHead
+
+	return oddHead
+}
