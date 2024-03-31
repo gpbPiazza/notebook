@@ -278,3 +278,55 @@ func Test_SortByOddIndexes(t *testing.T) {
 		})
 	}
 }
+
+func Test_Reverse(t *testing.T) {
+	type testCase struct {
+		name      string
+		buildList func() *Node
+		want      *Node
+	}
+
+	cases := []testCase{
+		{
+			name: "should revert list order 01",
+			buildList: func() *Node {
+				return SliceToList([]int{1, 2, 3, 4, 5})
+			},
+			want: &Node{Val: 5, Next: &Node{Val: 4, Next: &Node{Val: 3, Next: &Node{Val: 2, Next: &Node{Val: 1}}}}},
+		},
+		{
+			name: "should revert list order 02",
+			buildList: func() *Node {
+				return SliceToList([]int{30, 2, 3, 4, 5, 1, 3, 4})
+			},
+			want: &Node{Val: 4, Next: &Node{Val: 3, Next: &Node{Val: 1, Next: &Node{Val: 5,
+				Next: &Node{Val: 4, Next: &Node{Val: 3, Next: &Node{Val: 2, Next: &Node{Val: 30}}}}}}}},
+		},
+		{
+			name: "should revert list order 03",
+			buildList: func() *Node {
+				return SliceToList([]int{1, 2})
+			},
+			want: &Node{Val: 2, Next: &Node{Val: 1}},
+		},
+		{
+			name: "should revert list order 04",
+			buildList: func() *Node {
+				return SliceToList([]int{1})
+			},
+			want: &Node{Val: 1},
+		},
+	}
+
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			list := tt.buildList()
+
+			reversedList := list.Reverse()
+
+			if !reflect.DeepEqual(reversedList, tt.want) {
+				t.Errorf("%s - wat: %v got: %v", tt.name, tt.want, reversedList)
+			}
+		})
+	}
+}

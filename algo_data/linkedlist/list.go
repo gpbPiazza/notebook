@@ -96,3 +96,20 @@ func (n *Node) SortByOddIndexes() *Node {
 
 	return oddHead
 }
+
+func (n *Node) Reverse() *Node {
+	if n.Next == nil {
+		return n
+	}
+
+	var newList *Node
+	iterator := n
+	for iterator != nil {
+		nexNode := iterator.Next
+		iterator.Next = newList
+		newList = iterator
+		iterator = nexNode
+	}
+
+	return newList
+}
