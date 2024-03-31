@@ -194,5 +194,35 @@ func Test_DeleteMiddleNode(t *testing.T) {
 }
 
 func Test_Add(t *testing.T) {
+	type testCase struct {
+		name          string
+		want          *Node
+		elementsToAdd []int
+	}
 
+	cases := []testCase{
+		{
+			name:          "should return first node when has one element",
+			want:          &Node{Val: 1},
+			elementsToAdd: []int{1},
+		},
+		{
+			name:          "should return new list if the same amount of nodes",
+			want:          &Node{Val: 1, Next: &Node{Val: 3, Next: &Node{Val: 3, Next: &Node{Val: 7, Next: &Node{Val: 1, Next: &Node{Val: 2, Next: &Node{Val: 6}}}}}}},
+			elementsToAdd: []int{1, 3, 3, 7, 1, 2, 6},
+		},
+	}
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			list := New(tt.elementsToAdd[0])
+
+			for i := 1; i < len(tt.elementsToAdd); i++ {
+				list.Add(tt.elementsToAdd[i])
+			}
+
+			if !reflect.DeepEqual(tt.want, list) {
+				t.Errorf("%s - want: %v got: %v", tt.name, tt.want, list)
+			}
+		})
+	}
 }
