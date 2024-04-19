@@ -1,4 +1,4 @@
-package main
+package playground
 
 func MinDiff(n int, earnings []int, k int) int {
 	var alteredEarnings []int

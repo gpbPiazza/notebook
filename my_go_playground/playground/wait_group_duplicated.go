@@ -1,4 +1,4 @@
-package main
+package playground
 
 import (
 	"fmt"
@@ -44,7 +44,7 @@ func waitGroup2() {
 	fmt.Println("waitGroup 2, finish")
 }
 
-func main() {
+func ExecuteWaitGrouDuplicated() {
 	fmt.Println("waitGroup FATHER start")
 	var wg sync.WaitGroup
 	wg.Add(1)
