@@ -31,10 +31,36 @@ func (a *Array) Read(i int) int {
 	return a.data[i]
 }
 
-func (a *Array) Search(val int) (int, error) {
+func (a *Array) LinearSearch(val int) (int, error) {
 	for i := 0; i < len(a.data); i++ {
 		if a.data[i] == val {
 			return a.data[i], nil
+		}
+	}
+
+	return 0, ErrValueNotFound
+}
+
+func (a *Array) BinarySearch(val int) (int, error) {
+	isValFound := false
+	arrayToLookUp := a.data
+	for !isValFound {
+		middleIndex := len(arrayToLookUp) / 2
+		guessedVal := arrayToLookUp[middleIndex]
+
+		if guessedVal == val {
+			isValFound = true
+			return val, nil
+		}
+
+		if middleIndex == 0 {
+			return 0, ErrValueNotFound
+		}
+
+		if guessedVal > val {
+			arrayToLookUp = arrayToLookUp[:middleIndex]
+		} else {
+			arrayToLookUp = arrayToLookUp[middleIndex:]
 		}
 	}
 

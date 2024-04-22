@@ -76,7 +76,7 @@ func TestArray_Read(t *testing.T) {
 	}
 }
 
-func TestArray_Search(t *testing.T) {
+func TestArray_LinearSearch(t *testing.T) {
 	tests := []struct {
 		name    string
 		input   int
@@ -108,7 +108,53 @@ func TestArray_Search(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got, err := tt.array.Search(tt.input); got != tt.want && err != tt.wantErr {
+			if got, err := tt.array.LinearSearch(tt.input); got != tt.want && err != tt.wantErr {
+				t.Errorf("Array.Search() = %v, %v, want %v %v", got, err, tt.want, tt.wantErr)
+			}
+		})
+	}
+}
+
+func TestArray_BinarySearch(t *testing.T) {
+	tests := []struct {
+		name    string
+		input   int
+		array   *Array
+		wantErr error
+		want    int
+	}{
+		{
+			name:    "given value 1 should return 1",
+			input:   1,
+			array:   &Array{data: []int{1, 2, 3, 4}},
+			want:    1,
+			wantErr: nil,
+		},
+		{
+			name:    "given value 4 should return 4",
+			input:   4,
+			array:   &Array{data: []int{1, 2, 3, 4}},
+			want:    4,
+			wantErr: nil,
+		},
+		{
+			name:    "given value not existing in the array should return err",
+			input:   20,
+			array:   &Array{data: []int{1, 2, 3, 4}},
+			want:    0,
+			wantErr: ErrValueNotFound,
+		},
+		{
+			name:    "given value 19 should return 19",
+			input:   19,
+			array:   &Array{data: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}},
+			want:    19,
+			wantErr: nil,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got, err := tt.array.BinarySearch(tt.input); got != tt.want && err != tt.wantErr {
 				t.Errorf("Array.Search() = %v, %v, want %v %v", got, err, tt.want, tt.wantErr)
 			}
 		})
