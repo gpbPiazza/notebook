@@ -42,25 +42,18 @@ func (a *Array) LinearSearch(val int) (int, error) {
 }
 
 func (a *Array) BinarySearch(val int) (int, error) {
-	isValFound := false
-	arrayToLookUp := a.data
-	for !isValFound {
-		middleIndex := len(arrayToLookUp) / 2
-		guessedVal := arrayToLookUp[middleIndex]
+	low := 0
+	high := len(a.data) - 1
 
-		if guessedVal == val {
-			isValFound = true
-			return val, nil
-		}
+	for low <= high {
+		middle := (high + low) / 2
 
-		if middleIndex == 0 {
-			return 0, ErrValueNotFound
-		}
-
-		if guessedVal > val {
-			arrayToLookUp = arrayToLookUp[:middleIndex]
+		if a.data[middle] == val {
+			return a.data[middle], nil
+		} else if a.data[middle] > val {
+			high = middle - 1
 		} else {
-			arrayToLookUp = arrayToLookUp[middleIndex:]
+			low = middle + 1
 		}
 	}
 
