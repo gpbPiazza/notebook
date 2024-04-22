@@ -20,3 +20,7 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QWhat are some of the architecture characteristics that are note well-supported in event driven architecture?\\E$"}
 {"rule":"SOME_OF_THE","sentence":"^\\QWhat are some of the techniques for preventing data loss when sending and receiving messages from a queue?\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor a service he should persist the messages not juts in memory but also in a physical data store(fileSystem, database, others...)\nWhat are three main driving architecture characteristics for using event driven architecture?\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIs O of 1, all operations in the algorithm are in constant time, so if the arrays double of size and also in the worst case we always will have the same quantity of steps.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe algorithm show iterates in the array one time and inside of the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity.\\E$"}
+{"rule":"MD_BASEFORM","sentence":"^\\QBecause if the array size grows the number of steps will grows quadratically\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe algorithm show iterates in the array one time and inside the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity.\\E$"}

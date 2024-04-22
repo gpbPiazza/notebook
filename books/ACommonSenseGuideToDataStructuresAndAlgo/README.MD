@@ -26,3 +26,34 @@ By Jay Wengrow
 
 ### Chapter 2 exercises
 
+1. Since a linear search has to iterate into each element in the array to find the number eight would take 4 steps.
+2. A binary search would take one step, because the linear search always start verifying at the middle of the array and the number 8 is in middle position.
+3. The number of steps for a binary search in array of 100,000 would be 16 or 17, we can verify this by dividing 100,000 by 2 until reach the zero value of the vision, the number of division is the number of steps.
+
+### Chapter 3 exercises
+
+1. Is O of one, in constant time. The number of steps of this algorithm doesn't change by the given data.
+2. Is O of N, the algorithm iterates in all elements of the array and sum their values, if the given array doubled his size the number of steps will too.
+3. Is O of Log2(N), since the quantity of inputted data doubles and the number of steps only increase by one.
+4. Is O of 1, all operations in the algorithm are in constant time, so if the arrays double of size and also in the worst case we always will have the same quantity of steps.
+
+### Chapter 4 exercises
+
+1.
+| N Elements | O(N) | O(log2 N) | O(Nˆ2)   |
+| -------- | ------ | --------- | -------- |
+| 100      | 100    | 7         | 10000    |
+| 2000     | 2000   | 11        | 4000000  |
+
+2. Since the algorithm has O(Nˆ2) notation and takes 256 steps to conclude the operation the size of array can be found as root square of 256 that is 16 array size.
+3. The algorithm show iterates in the array one time and inside the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity. Because if the array size grows the number of steps will grows quadratically.
+4. 
+```python
+  def greatestNumber(array):
+    greatestNum = array[0]
+    for i in array:
+      if greatestNum < array[i]:
+        greatestNum = array[i]
+
+    return greatestNum
+```
