@@ -1,4 +1,4 @@
-package bubblesort
+package sorting
 
 func BubbleSort(nums []int) []int {
 	lastIndex := len(nums) - 1
