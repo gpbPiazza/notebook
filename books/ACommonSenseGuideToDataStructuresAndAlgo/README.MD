@@ -57,3 +57,14 @@ By Jay Wengrow
 
     return greatestNum
 ```
+### Chapter 5 exercises
+
+### Chapter 6 exercises
+
+### Chapter 7 exercises
+
+### Chapter 8 exercises
+1.  [intersection](../../algo_data/array/intersection.go)
+2.  [find_duplicated](../../algo_data/array/find_duplicated.go)
+3.  [find_the_missing_letter](../../algo_data/array/find_the_missing_letter.go)
+4.  [non_first_duplicated](../../algo_data/array/non_first_duplicated.go)
