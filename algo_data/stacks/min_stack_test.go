@@ -1,4 +1,4 @@
-package minstack
+package stacks
 
 import "testing"
 

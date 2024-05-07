@@ -1,4 +1,4 @@
-package minstack
+package stacks
 
 // https://leetcode.com/problems/min-stack/description/
 type MinStack struct {
