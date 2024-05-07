@@ -3,8 +3,6 @@ package stacks
 import "testing"
 
 func TestStack(t *testing.T) {
-	// ["MinStack","push","push","push","getMin","pop","top","getMin"]
-	// [[],[-2],[0],[-3],[],[],[],[]]
 	stack := NewStack[int](3)
 	stack.Push(-2)
 	stack.Push(0)
