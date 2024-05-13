@@ -24,3 +24,5 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe algorithm show iterates in the array one time and inside of the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity.\\E$"}
 {"rule":"MD_BASEFORM","sentence":"^\\QBecause if the array size grows the number of steps will grows quadratically\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe algorithm show iterates in the array one time and inside the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QO(n)\nO(n)\nO(n)*O(nˆ(1/2)) = O(nˆ(3/2)) simplifying we would have O(nˆ2)\nChapter 6 exercises\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor N+logN steps would be O(n) same response from question 1.\\E$"}

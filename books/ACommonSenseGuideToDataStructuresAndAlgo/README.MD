@@ -58,13 +58,44 @@ By Jay Wengrow
     return greatestNum
 ```
 ### Chapter 5 exercises
-
+1. An Algorithm that takes 4 N + 16 steps would have 4*O(n)+16*O(1) time complexity, since Big O ignores constants we would have O(n).
+2. An algorithm that takes 2 Nˆ2 steps would be 2*O(nˆ2) time complexity, since Big O ignores constants we would have O(nˆ2).
+3. O(n)
+4. O(n)
+5. $ O(n)*O(nˆ(1/2)) = O(nˆ3/2)) $ simplifying we would have O(nˆ2)
 ### Chapter 6 exercises
+1. An algorithm that takes 3Nˆ2+2N+1 steps would have time complexity O(nˆ2) since we can ignore constants and Big O only cares about the worst case notation.
+2. For N+logN steps would be O(n) same response from question 1.
+3. Worst case: O(nˆ2), medium case: O(nˆ2 /2) and best case: O(1).
+4. Insert the return statement in side of the if condition when found X to return immediately and stop iterating.
 
 ### Chapter 7 exercises
-
+1. BestCase O(1), Medium O(N/4), Worst O(N/2) → O(N)
+2. O(N) since N is the total array length of both arrays.
+3. B: O(1), Medium O((N*M)/2), Worst O(N*M).
+4. O(nˆ3)
+5. O(log n)
 ### Chapter 8 exercises
 1.  [intersection](../../algo_data/array/intersection.go)
 2.  [find_duplicated](../../algo_data/array/find_duplicated.go)
 3.  [find_the_missing_letter](../../algo_data/array/find_the_missing_letter.go)
 4.  [non_first_duplicated](../../algo_data/array/non_first_duplicated.go)
+### Chapter 9 exercises
+
+### Chapter 10 exercises
+1. Base case is the if low>high puts low
+2. Would do factorial of 10 to infinite, the base case would never be reached with (n - 2) in the recursion call, to fix we should change -2 to -1.
+3. Base case would be if low == high return low
+4. 
+```go
+func PrintNums(nums []a slice of int_OR_[]int) {
+  for i := range nums {
+    if isSlice(nums[i]) {
+      PrintNums(nums)
+    }else {
+      fmt.Println(nums[i])
+    }
+  }
+}
+```
+### Chapter 11 exercises
