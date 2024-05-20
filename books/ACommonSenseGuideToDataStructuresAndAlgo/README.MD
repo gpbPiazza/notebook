@@ -99,3 +99,9 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 }
 ```
 ### Chapter 11 exercises
+
+1. [count_all_chars](../../algo_data/array/count_all_chars.go)
+2. [only_even_numbers](../../algo_data/array/only_even.go)
+3. [get_triangular_number_in_given_position](../../algo_data/sequences/triangular_numbers.go)
+4. [index_of_x](../../algo_data/array/index_of_x.go)
+5. [unique_paths](../../algo_data/matrix/unique_paths.go)
