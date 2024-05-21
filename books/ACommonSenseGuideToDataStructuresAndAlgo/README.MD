@@ -105,3 +105,9 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 3. [get_triangular_number_in_given_position](../../algo_data/sequences/triangular_numbers.go)
 4. [index_of_x](../../algo_data/array/index_of_x.go)
 5. [unique_paths](../../algo_data/matrix/unique_paths.go)
+
+### Chapter 12 exercises
+
+1. [add_until_100](../../algo_data/array/add_until_100.go)
+2. [golomb_with_memo](../../algo_data/sequences/golomb.go)
+3. [uniquePaths_with_memo](../../algo_data/matrix/unique_paths.go)
