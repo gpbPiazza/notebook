@@ -107,7 +107,10 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 5. [unique_paths](../../algo_data/matrix/unique_paths.go)
 
 ### Chapter 12 exercises
-
 1. [add_until_100](../../algo_data/array/add_until_100.go)
 2. [golomb_with_memo](../../algo_data/sequences/golomb.go)
 3. [uniquePaths_with_memo](../../algo_data/matrix/unique_paths.go)
+
+### Chapter 13 exercises
+
+1. 
