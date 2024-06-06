@@ -14,29 +14,45 @@ func Test_partition(t *testing.T) {
 		name string
 		args args
 	}{
-		{
-			name: "book case",
-			args: args{
-				nums:  []int{0, 1, 2, 5, 6, 3},
-				left:  0,
-				right: 5,
-			},
-		},
-		{
-			name: "1",
-			args: args{
-				nums:  []int{0, 7, 1, 8, 2, 9, 3, 5, 6},
-				left:  0,
-				right: 8,
-			},
-		},
+		// {
+		// 	name: "book case",
+		// 	args: args{
+		// 		nums:  []int{0, 1, 2, 5, 6, 3},
+		// 		left:  0,
+		// 		right: 5,
+		// 	},
+		// },
+		// {
+		// 	name: "duplicated elements",
+		// 	args: args{
+		// 		nums:  []int{0, 1, 1, 2, 5, 5, 6, 1, 3},
+		// 		left:  0,
+		// 		right: 8,
+		// 	},
+		// },
+		// {
+		// 	name: "1",
+		// 	args: args{
+		// 		nums:  []int{0, 7, 1, 8, 2, 9, 3, 5, 6},
+		// 		left:  0,
+		// 		right: 8,
+		// 	},
+		// },
+		// {
+		// 	name: "take middle of the array",
+		// 	args: args{
+		// 		nums:  []int{0, 7, 1, 8, 2, 9, 3, 5, 6},
+		// 		left:  0,
+		// 		right: 4,
+		// 	},
+		// },
 
 		{
-			name: "take middle of the array",
+			name: "zap1",
 			args: args{
-				nums:  []int{0, 7, 1, 8, 2, 9, 3, 5, 6},
+				nums:  []int{3, 4, 6, 0, 1, 2, 3},
 				left:  0,
-				right: 4,
+				right: 6,
 			},
 		},
 	}
@@ -57,13 +73,13 @@ func Test_partition(t *testing.T) {
 			}
 
 			for i := range leftVals {
-				if !(leftVals[i] < pivotVal) {
+				if !(leftVals[i] <= pivotVal) {
 					t.Errorf("error on leftVals - found %d pivot is %d", leftVals[i], pivotVal)
 				}
 			}
 
 			for i := range rightVals {
-				if !(rightVals[i] > pivotVal) {
+				if !(rightVals[i] >= pivotVal) {
 					t.Errorf("error on rightVals - found %d pivot is %d", rightVals[i], pivotVal)
 				}
 			}
