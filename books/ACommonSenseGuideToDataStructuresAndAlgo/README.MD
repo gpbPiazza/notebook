@@ -113,4 +113,6 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 
 ### Chapter 13 exercises
 
-1. 
+1. [greatest_product_treee_numbers](../../algo_data/sorting/greatest_product_tree_number.go)
+2. [find_missing_number](../../algo_data/sorting/find_greatest_number.go)
+3. [find_greatest_number](../../algo_data/sorting/find_greatest_number.go)
