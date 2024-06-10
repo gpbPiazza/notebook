@@ -2,17 +2,25 @@ package queues
 
 import "testing"
 
-func TestQueue(t *testing.T) {
-	queue := NewQueue[int]()
+func Test_SliceQueue(t *testing.T) {
+	queue := NewSliceQueue()
+	QueueTest(t, queue)
+}
 
+func Test_DLLQQueue(t *testing.T) {
+	queue := NewDLLQueue()
+	QueueTest(t, queue)
+}
+
+func QueueTest(t *testing.T, queue Queue) {
 	got := queue.Dequeue()
-	if got != 0 {
-		t.Error("expected queue always return the zero value of seted type when is empty")
+	if got != nil {
+		t.Error("expected queue always return nil when is empty, in Dequeue")
 	}
 
 	got = queue.Read()
-	if got != 0 {
-		t.Error("expected queue always return the zero value of seted type when is empty")
+	if got != nil {
+		t.Error("expected queue always return nil when is empty, in Read")
 	}
 
 	queue.Enqueue(10)
@@ -55,7 +63,7 @@ func TestQueue(t *testing.T) {
 	}
 
 	got = queue.Read()
-	if got != 0 {
-		t.Error("expected queue always return the zero value of seted type when is empty")
+	if got != nil {
+		t.Error("expected queue always return nil when is empty, in Read")
 	}
 }
