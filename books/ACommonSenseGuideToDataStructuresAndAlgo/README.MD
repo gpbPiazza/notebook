@@ -124,3 +124,5 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 3. [last_node_from_linked_list](../../algo_data/linkedlist/list.go)
 4. [reverse_linked_list](../../algo_data/linkedlist/list.go)
 5. [delete_self_node_linked_List](../../algo_data/linkedlist/list.go)
+
+### Chapter 15 exercises
