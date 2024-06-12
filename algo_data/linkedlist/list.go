@@ -1,5 +1,7 @@
 package linkedlist
 
+import "fmt"
+
 type Node struct {
 	Val  int
 	Next *Node
@@ -97,19 +99,61 @@ func (n *Node) SortByOddIndexes() *Node {
 	return oddHead
 }
 
+func (n *Node) Print() {
+	if n == nil {
+		fmt.Println("empty list")
+	}
+
+	currentNode := n
+	for currentNode != nil {
+		fmt.Println(currentNode.Val)
+		currentNode = currentNode.Next
+	}
+}
+
+func (n *Node) LastNode() *Node {
+	if n == nil {
+		return nil
+	}
+
+	currentNode := n
+	for currentNode.Next != nil {
+		currentNode = currentNode.Next
+	}
+
+	return currentNode
+}
+
 func (n *Node) Reverse() *Node {
-	if n.Next == nil {
+	if n == nil || n.Next == nil {
 		return n
 	}
 
-	var newList *Node
-	iterator := n
-	for iterator != nil {
-		nexNode := iterator.Next
-		iterator.Next = newList
-		newList = iterator
-		iterator = nexNode
+	current := n
+	var prev *Node
+	for current.Next != nil {
+		nextNode := current.Next
+
+		current.Next = prev
+
+		prev = current
+		current = nextNode
 	}
 
-	return newList
+	current.Next = prev
+
+	return current
+}
+
+// selfDelete deletes the called node to be deleted from the linked list
+// it will do nothing if N or n.Next is nil
+func (n *Node) SelfDelete() {
+	if n == nil || n.Next == nil {
+		return
+	}
+
+	newVal := n.Next.Val
+
+	n.Val = newVal
+	n.Next = n.Next.Next
 }

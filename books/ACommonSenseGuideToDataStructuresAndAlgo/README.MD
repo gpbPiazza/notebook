@@ -116,3 +116,11 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 1. [greatest_product_treee_numbers](../../algo_data/sorting/greatest_product_tree_number.go)
 2. [find_missing_number](../../algo_data/sorting/find_greatest_number.go)
 3. [find_greatest_number](../../algo_data/sorting/find_greatest_number.go)
+
+### Chapter 14 exercises
+
+1. [print_list_method_Print](../../algo_data/linkedlist/list.go)
+2. [rever_print_double_linked_List](../../algo_data/linkedlist/double_linked_list.go)
+3. [last_node_from_linked_list](../../algo_data/linkedlist/list.go)
+4. [reverse_linked_list](../../algo_data/linkedlist/list.go)
+5. [delete_self_node_linked_List](../../algo_data/linkedlist/list.go)

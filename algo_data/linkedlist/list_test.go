@@ -3,6 +3,8 @@ package linkedlist
 import (
 	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_New(t *testing.T) {
@@ -322,10 +324,86 @@ func Test_Reverse(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			list := tt.buildList()
 
-			reversedList := list.Reverse()
+			reversed := list.Reverse()
 
-			if !reflect.DeepEqual(reversedList, tt.want) {
-				t.Errorf("%s - wat: %v got: %v", tt.name, tt.want, reversedList)
+			if !reflect.DeepEqual(reversed, tt.want) {
+				t.Errorf("%s - wat: %v got: %v", tt.name, tt.want, list)
+			}
+		})
+	}
+}
+
+func TestNode_Print(t *testing.T) {
+	t.Run("print  list", func(t *testing.T) {
+		list := SliceToList([]int{1, 11, 2, 22, 3, 33, 4, 44, 5, 55})
+		list.Print()
+
+		emptyList := SliceToList([]int{})
+		emptyList.Print()
+	})
+}
+
+func TestNode_LastNode(t *testing.T) {
+	t.Run("return 6", func(t *testing.T) {
+		list := SliceToList([]int{1, 2, 3, 4, 5, 6})
+
+		lastNode := list.LastNode()
+
+		assert.Equal(t, 6, lastNode.Val)
+	})
+
+	t.Run("return nil in empty list", func(t *testing.T) {
+		list := SliceToList([]int{})
+		empty := list.LastNode()
+		assert.Nil(t, empty)
+	})
+
+	t.Run("return first element when list only have one node", func(t *testing.T) {
+		list := SliceToList([]int{1})
+		lastNode := list.LastNode()
+		assert.Equal(t, 1, lastNode.Val)
+	})
+}
+
+func TestNode_SelfDelete(t *testing.T) {
+	tests := []struct {
+		name      string
+		buildList func() (*Node, *Node)
+		want      *Node
+	}{
+		{
+			name: "should delete node 3 and all list are OK",
+			buildList: func() (*Node, *Node) {
+				list := SliceToList([]int{1, 2, 3, 4, 5})
+				return list, list.Next.Next
+			},
+			want: &Node{Val: 1, Next: &Node{Val: 2, Next: &Node{Val: 4, Next: &Node{Val: 5}}}},
+		},
+		{
+			name: "should delete node 20 and all list are OK",
+			buildList: func() (*Node, *Node) {
+				list := SliceToList([]int{12, 20, 2, 33, 44})
+				return list, list.Next
+			},
+			want: &Node{Val: 12, Next: &Node{Val: 2, Next: &Node{Val: 33, Next: &Node{Val: 44}}}},
+		},
+		{
+			name: "should should delete node 12",
+			buildList: func() (*Node, *Node) {
+				list := SliceToList([]int{12, 22})
+				return list, list
+			},
+			want: &Node{Val: 22},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			entirelist, nodeToBeDeleted := tt.buildList()
+
+			nodeToBeDeleted.SelfDelete()
+
+			if !reflect.DeepEqual(entirelist, tt.want) {
+				t.Errorf("%v wanted %v - got %v", tt.name, tt.want, entirelist)
 			}
 		})
 	}
