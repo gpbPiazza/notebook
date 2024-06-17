@@ -126,3 +126,65 @@ func PrintNums(nums []a slice of int_OR_[]int) {
 5. [delete_self_node_linked_List](../../algo_data/linkedlist/list.go)
 
 ### Chapter 15 exercises
+
+1. [1,5,9,2,4,10,6,3,8]
+    (1)
+      \
+      (5)
+   /        \
+  (2)       (9)
+    \       /   \
+    (4)    (6)     (10)  
+    /         \
+  (3)         (8)
+2. 1000 well balanced nodes, the number of steps to find a element would be 10 steps. Because the time complexity to search
+in a binary search tree in the bestcase if O(Log(n)) wich means by each iteration we cut in the half the quantity of elements to search, so:
+1000/2 = 500
+500/2 = 250
+250/2 = 125
+125/2 = 62,5
+62,5/2 = 31,25
+31,25/2 = 15.625
+15.625/2 = 7.8
+7.8/2 = 3.9
+3.9/2 = 1.9
+1.9/2 = 0.97
+3. [find_greatest_val](../../algo_data/trees/binary_search_tree/find_greatest.go)
+4. Show sequence of prints of the following function
+```go
+  func TrasnverseAndPrint(node *Node) {
+    if node == nil {
+      return
+    }
+    fmt.Println(node.Val)
+    TrasnverseAndPrint(node.Left)
+    TrasnverseAndPrint(node.Right)
+  }
+```
+- Moby dick
+- Great Expectations
+- Alice in Wonderland
+- Lord of the files
+- Robinson Crusoe
+- Pride and Pejudice
+- The odyssey
+
+5. Show sequence of prints of the following function
+```go
+  func TrasnverseAndPrint(node *Node) {
+    if node == nil {
+      return
+    }
+    TrasnverseAndPrint(node.Left)
+    TrasnverseAndPrint(node.Right)
+    fmt.Println(node.Val)
+  }
+```
+- Alice in Wonderland 
+- Lord of the files
+- Great Expectations
+- Pride and Pejudice
+- The odyssey
+- Robinson Crusoe
+- Moby dick
+```

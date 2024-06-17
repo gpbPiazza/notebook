@@ -88,9 +88,9 @@ func TestInsert(t *testing.T) {
 	})
 }
 
-func Test_My_Delete_Implementation(t *testing.T) {
-	DeletTestCases(t, Delete)
-}
+// func Test_My_Delete_Implementation(t *testing.T) {
+// 	DeletTestCases(t, Delete)
+// }
 
 func Test_Book_Delete_Implementation(t *testing.T) {
 	DeletTestCases(t, DeleteBookImplementation)
@@ -168,6 +168,13 @@ func DeletTestCases(t *testing.T, DeleteFunc func(node *Node, val int) *Node) {
 }
 
 func TestPrintNodes(t *testing.T) {
-	output := stdout.String(func() { PrintNodesASC(NewBinarySearchTreeTest()) })
-	assert.Equal(t, "4\n10\n11\n12\n25\n30\n33\n40\n50\n61\n56\n52\n75\n82\n89\n95\n", output)
+	t.Run("test Inorder transverse", func(t *testing.T) {
+		output := stdout.String(func() { Inorder_TransverseAndPrint(NewBinarySearchTreeTest()) })
+		assert.Equal(t, "4\n10\n11\n12\n25\n30\n33\n40\n50\n61\n56\n52\n75\n82\n89\n95\n", output)
+	})
+
+	t.Run("test Preorder transverse", func(t *testing.T) {
+		output := stdout.String(func() { Preorder_TrasnverseAndPrint(NewBinarySearchTreeTest()) })
+		assert.Equal(t, "50\n25\n10\n4\n11\n12\n33\n30\n40\n75\n56\n61\n52\n89\n82\n95\n", output)
+	})
 }

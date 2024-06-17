@@ -132,13 +132,34 @@ func lift(node, nodeToDelete *Node) *Node {
 	}
 }
 
+// Inorder transverse
 // Transverse the tree printing nodes in ASC order
-func PrintNodesASC(node *Node) {
+func Inorder_TransverseAndPrint(node *Node) {
 	if node == nil {
 		return
 	}
 
-	PrintNodesASC(node.Left)
+	Inorder_TransverseAndPrint(node.Left)
 	fmt.Println(node.Val)
-	PrintNodesASC(node.Right)
+	Inorder_TransverseAndPrint(node.Right)
+}
+
+// Preorder transverse
+func Preorder_TrasnverseAndPrint(node *Node) {
+	if node == nil {
+		return
+	}
+	fmt.Println(node.Val)
+	Preorder_TrasnverseAndPrint(node.Left)
+	Preorder_TrasnverseAndPrint(node.Right)
+}
+
+// Postorder transverse
+func Postorder_TrasnverseAndPrint(node *Node) {
+	if node == nil {
+		return
+	}
+	Preorder_TrasnverseAndPrint(node.Left)
+	Preorder_TrasnverseAndPrint(node.Right)
+	fmt.Println(node.Val)
 }
