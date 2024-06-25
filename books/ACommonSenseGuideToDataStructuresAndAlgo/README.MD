@@ -187,6 +187,36 @@ in a binary search tree in the bestcase if O(Log(n)) wich means by each iteratio
 - The odyssey
 - Robinson Crusoe
 - Moby dick
-```
+
 
 ### Chapter 16 exercises
+
+1. 	
+  		    11
+			 /    \
+		  10	    8
+    /   \    /  \
+    6    9  7    4
+  / \   / \
+ 2   1  3  5
+
+2. 
+  		   9
+			 /    \
+		  6	      8
+    /   \    /  \
+   3    5  7    4
+  / \   
+ 2   1  
+
+3. a heap with [55,22,34,10,2,99,68]
+     99
+   /   \ 
+  22   68
+ / \   / \
+10 2  34 55
+
+Delete order is: [99,68,55,34,22,10,2]
+By doing this we juset dicovered a new sort algorithm, heapsort.
+The Main ideia is Insert the elements into the heap and delete them from the heap inserting into a array.
+Takes O (N log N)
