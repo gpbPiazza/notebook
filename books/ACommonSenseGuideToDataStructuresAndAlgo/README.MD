@@ -188,3 +188,5 @@ in a binary search tree in the bestcase if O(Log(n)) wich means by each iteratio
 - Robinson Crusoe
 - Moby dick
 ```
+
+### Chapter 16 exercises
