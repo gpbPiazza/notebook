@@ -217,6 +217,6 @@ in a binary search tree in the bestcase if O(Log(n)) wich means by each iteratio
 10 2  34 55
 
 Delete order is: [99,68,55,34,22,10,2]
-By doing this we juset dicovered a new sort algorithm, heapsort.
+By doing this we juset dsicovered a new sort algorithm, heapsort.
 The Main ideia is Insert the elements into the heap and delete them from the heap inserting into a array.
 Takes O (N log N)
