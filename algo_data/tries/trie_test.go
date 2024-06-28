@@ -147,3 +147,35 @@ func TestTrie_PrefixSearch(t *testing.T) {
 		t.Error("expected to batNodeChildren have another word starting with T")
 	}
 }
+
+func TestTrie_AllWordsInWordOf(t *testing.T) {
+	trie := NewTrie()
+
+	trie.Insert("zap")
+	trie.Insert("zapper")
+	trie.Insert("zap2")
+	trie.Insert("zap3")
+	trie.Insert("zap4")
+	trie.Insert("zapDaGama")
+	trie.Insert("aiai")
+	trie.Insert("gremio")
+	trie.Insert("mengudo")
+	trie.Insert("mengo")
+	trie.Insert("men")
+	trie.Insert("mens")
+	trie.Insert("mensalidade")
+
+	zapNode := trie.SearchPrefix("zap")
+
+	words := make([]string, 0)
+	trie.AllWordsInWordOf(zapNode, &words, "zap")
+	if len(words) != 6 {
+		t.Error("expected to have 6 words starting with zap")
+	}
+
+	words2 := make([]string, 0)
+	trie.AllWordsInWordOf(nil, &words2, "")
+	if len(words2) != 13 {
+		t.Error("expected to have 13 words")
+	}
+}

@@ -50,3 +50,20 @@ func (t *Trie) SearchPrefix(prefix string) *Node {
 
 	return currentNode
 }
+
+// allWordsInWordOf returns a slice of words starting by the given word
+// given nil node will assume to start from the root trie
+// The result will be concatened in the slice words by reference
+func (t *Trie) AllWordsInWordOf(node *Node, words *[]string, word string) {
+	if node == nil {
+		node = t.root
+	}
+
+	for char, val := range node.children {
+		if char == rune('*') {
+			*words = append(*words, word)
+		} else {
+			t.AllWordsInWordOf(val, words, word+string(char))
+		}
+	}
+}
