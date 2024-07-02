@@ -1,5 +1,7 @@
 package tries
 
+import "fmt"
+
 // A trie can have any number of child nodes
 type Node struct {
 	children map[rune]*Node
@@ -66,4 +68,47 @@ func (t *Trie) AllWordsInWordOf(node *Node, words *[]string, word string) {
 			t.AllWordsInWordOf(val, words, word+string(char))
 		}
 	}
+}
+
+func TransversePrintln(node *Node) {
+	if node == nil {
+		return
+	}
+
+	for key, child := range node.children {
+		TransversePrintln(child)
+		fmt.Println(string(key))
+	}
+}
+
+// Autoccorect word returns a suggestions fix typo
+// by the given word. It Will return the first word that shares the bigger amount of
+// the prefixes with the existing words in the trie.
+func (t *Trie) AutocorrectWord(word string) []string {
+	searchCommonPrefix := func(word string) (string, *Node) {
+		currentNode := t.root
+		var commonPrefix string
+		for _, char := range word {
+			node, ok := currentNode.children[char]
+			if !ok {
+				return commonPrefix, currentNode
+			}
+			commonPrefix += string(char)
+			currentNode = node
+		}
+
+		return commonPrefix, currentNode
+	}
+
+	commonPrefix, commonNode := searchCommonPrefix(word)
+
+	var result []string
+	t.AllWordsInWordOf(commonNode, &result, "")
+
+	for i := range result {
+		word := result[i]
+		result[i] = commonPrefix + word
+	}
+
+	return result
 }

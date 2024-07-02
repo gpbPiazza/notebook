@@ -220,3 +220,20 @@ Delete order is: [99,68,55,34,22,10,2]
 By doing this we juset dsicovered a new sort algorithm, heapsort.
 The Main ideia is Insert the elements into the heap and delete them from the heap inserting into a array.
 Takes O (N log N)
+
+### Chapter 17 exercises
+
+1. 
+- "tag"
+- "tan"
+- "tank"
+- "tap"
+- "today"
+- "total"
+- "we"
+- "well"
+- "went"
+
+2. [TestTrie_CHAPTER17_EXERCISE2](../../algo_data/tries/trie_test.go)
+3. [TransversePrintln](../../algo_data/tries/trie.go)
+4. [AutocorrectWord](../../algo_data/tries/trie.go)

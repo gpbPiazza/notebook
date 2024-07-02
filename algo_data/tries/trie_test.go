@@ -2,6 +2,8 @@ package tries
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTrie_Insert(t *testing.T) {
@@ -178,4 +180,85 @@ func TestTrie_AllWordsInWordOf(t *testing.T) {
 	if len(words2) != 13 {
 		t.Error("expected to have 13 words")
 	}
+}
+
+func TestTrie_CHAPTER17_EXERCISE2(t *testing.T) {
+	trie := NewTrie()
+
+	words := []string{
+		"get",
+		"go",
+		"got",
+		"gotten",
+		"hall",
+		"ham",
+		"hammer",
+		"hill",
+		"zebra",
+	}
+	for _, word := range words {
+		trie.Insert(word)
+	}
+	var got []string
+	trie.AllWordsInWordOf(nil, &got, "")
+
+	assert.ElementsMatch(t, got, words)
+}
+
+func TestTrie_TransversePrintln(t *testing.T) {
+	trie := NewTrie()
+
+	words := []string{
+		"tag",
+		"tan",
+		"tankk",
+		"tap",
+		"today",
+		"total",
+		"we",
+		"well",
+		"went",
+	}
+	for _, word := range words {
+		trie.Insert(word)
+	}
+
+	TransversePrintln(trie.root)
+}
+
+func TestTrie_AutocorrectWord(t *testing.T) {
+	trie := NewTrie()
+
+	words := []string{
+		"tag",
+		"tan",
+		"tankk",
+		"tap",
+		"today",
+		"total",
+		"we",
+		"well",
+		"went",
+	}
+	for _, word := range words {
+		trie.Insert(word)
+	}
+
+	t.Run("given a word not existing in the trie return all words with common prefix of TO", func(t *testing.T) {
+		got := trie.AutocorrectWord("top")
+
+		assert.ElementsMatch(t, []string{"today", "total"}, got)
+	})
+
+	t.Run("return the same word when word exist in the trie", func(t *testing.T) {
+		got := trie.AutocorrectWord("total")
+
+		assert.ElementsMatch(t, []string{"total"}, got)
+	})
+
+	t.Run("return all letter that starts with w", func(t *testing.T) {
+		got := trie.AutocorrectWord("w")
+
+		assert.ElementsMatch(t, []string{"we", "well", "went"}, got)
+	})
 }
