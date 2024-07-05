@@ -3,23 +3,23 @@ package queues
 import "testing"
 
 func Test_SliceQueue(t *testing.T) {
-	queue := NewSliceQueue()
+	queue := NewSliceQueue[int]()
 	QueueTest(t, queue)
 }
 
 func Test_DLLQQueue(t *testing.T) {
-	queue := NewDLLQueue()
+	queue := newDLLQueue[int]()
 	QueueTest(t, queue)
 }
 
-func QueueTest(t *testing.T, queue Queue) {
+func QueueTest[T int](t *testing.T, queue Queue[int]) {
 	got := queue.Dequeue()
-	if got != nil {
-		t.Error("expected queue always return nil when is empty, in Dequeue")
+	if got != 0 {
+		t.Error("expected queue always return 0 when is empty, in Dequeue")
 	}
 
 	got = queue.Read()
-	if got != nil {
+	if got != 0 {
 		t.Error("expected queue always return nil when is empty, in Read")
 	}
 
@@ -63,7 +63,7 @@ func QueueTest(t *testing.T, queue Queue) {
 	}
 
 	got = queue.Read()
-	if got != nil {
-		t.Error("expected queue always return nil when is empty, in Read")
+	if got != 0 {
+		t.Error("expected queue always return 0 when is empty, in Read")
 	}
 }

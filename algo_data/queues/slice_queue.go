@@ -1,22 +1,22 @@
 package queues
 
-type SliceQueue struct {
-	store []any
+type SliceQueue[T any] struct {
+	store []T
 }
 
-func NewSliceQueue() *SliceQueue {
-	return &SliceQueue{
-		store: make([]any, 0),
+func NewSliceQueue[T any]() *SliceQueue[T] {
+	return &SliceQueue[T]{
+		store: make([]T, 0),
 	}
 }
 
-func (q *SliceQueue) Enqueue(data any) {
+func (q *SliceQueue[T]) Enqueue(data T) {
 	q.store = append(q.store, data)
 }
 
-func (q *SliceQueue) Dequeue() any {
+func (q *SliceQueue[T]) Dequeue() T {
 	if len(q.store) == 0 {
-		return nil
+		return zeroValue[T]()
 	}
 
 	firstIn := q.store[0]
@@ -25,9 +25,14 @@ func (q *SliceQueue) Dequeue() any {
 	return firstIn
 }
 
-func (q *SliceQueue) Read() any {
+func zeroValue[T any]() T {
+	var zero T
+	return zero
+}
+
+func (q *SliceQueue[T]) Read() T {
 	if len(q.store) == 0 {
-		return nil
+		return zeroValue[T]()
 	}
 
 	return q.store[0]

@@ -1,27 +1,27 @@
 package queues
 
-type Node struct {
-	Val  any
-	Prev *Node
-	Next *Node
+type node[T any] struct {
+	Val  T
+	Prev *node[T]
+	Next *node[T]
 }
 
-func NewNode(val any) *Node {
-	return &Node{Val: val}
+func newNode[T any](val T) *node[T] {
+	return &node[T]{Val: val}
 }
 
-type DoubleLinkedList struct {
-	tail *Node
-	head *Node
+type doubleLinkedList[T any] struct {
+	tail *node[T]
+	head *node[T]
 }
 
-func NewDoubleLinkedList(head, tail *Node) *DoubleLinkedList {
-	return &DoubleLinkedList{head: head, tail: tail}
+func newDoubleLinkedList[T any](head, tail *node[T]) *doubleLinkedList[T] {
+	return &doubleLinkedList[T]{head: head, tail: tail}
 }
 
-func (dll *DoubleLinkedList) removeFromFront() any {
+func (dll *doubleLinkedList[T]) removeFromFront() T {
 	if dll.head == nil {
-		return nil
+		return zeroValue[T]()
 	}
 	removedNode := dll.head
 	dll.head = dll.head.Prev
@@ -29,8 +29,8 @@ func (dll *DoubleLinkedList) removeFromFront() any {
 	return removedNode.Val
 }
 
-func (dll *DoubleLinkedList) insertAtEnd(val any) {
-	newNode := NewNode(val)
+func (dll *doubleLinkedList[T]) insertAtEnd(val T) {
+	newNode := newNode(val)
 	if dll.tail == nil {
 		dll.head = newNode
 		dll.tail = newNode
@@ -41,27 +41,27 @@ func (dll *DoubleLinkedList) insertAtEnd(val any) {
 	}
 }
 
-type DLLQueue struct {
-	store *DoubleLinkedList
+type dLLQueue[T any] struct {
+	store *doubleLinkedList[T]
 }
 
-func NewDLLQueue() *DLLQueue {
-	return &DLLQueue{
-		store: NewDoubleLinkedList(nil, nil),
+func newDLLQueue[T any]() *dLLQueue[T] {
+	return &dLLQueue[T]{
+		store: newDoubleLinkedList[T](nil, nil),
 	}
 }
 
-func (dllq *DLLQueue) Enqueue(val any) {
+func (dllq *dLLQueue[T]) Enqueue(val T) {
 	dllq.store.insertAtEnd(val)
 }
 
-func (dllq *DLLQueue) Dequeue() any {
+func (dllq *dLLQueue[T]) Dequeue() T {
 	return dllq.store.removeFromFront()
 }
 
-func (dllq *DLLQueue) Read() any {
+func (dllq *dLLQueue[T]) Read() T {
 	if dllq.store == nil || dllq.store.head == nil {
-		return nil
+		return zeroValue[T]()
 	}
 
 	return dllq.store.head.Val
