@@ -238,4 +238,12 @@ Takes O (N log N)
 3. [TransversePrintln](../../algo_data/tries/trie.go)
 4. [AutocorrectWord](../../algo_data/tries/trie.go)
 
+### Chapter 18 exercises
+
+1. if the user search nail in this graph probably the function of recommendation would return 
+"nail polish", "needles", "pins" and "hammer".
+2. A, B, E, J, F, O, C, G, K, D, H, L, M, I, N, P
+3. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P 
+4. [bfsSearch](../../algo_data/graphs/all_connected_graph.go)
+5. [shortestPath](../../algo_data/graphs/all_connected_graph.go)
 

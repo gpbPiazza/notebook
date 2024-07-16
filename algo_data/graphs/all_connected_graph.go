@@ -2,6 +2,7 @@ package graphs
 
 import (
 	"fmt"
+	"slices"
 
 	"github.com/gpbPiazza/notebook/algo_data/queues"
 )
@@ -90,3 +91,59 @@ func bfs_transverse(vertex *cVertex) {
 // bfs will perform better, if yuou are seraching fora vertex farther from you current vertex
 // dfs will perform better. Because dfs will reach the most farther vertecies first and
 // bfs will reach the closests ones first.
+
+func bfsSearch(vertex *cVertex, valSearched string) *cVertex {
+	visited := make(map[*cVertex]bool)
+
+	currentVertex := vertex
+	queue := queues.NewSliceQueue[*cVertex]()
+	queue.Enqueue(currentVertex)
+	visited[currentVertex] = true
+
+	for queue.Read() != nil {
+		currentVertex := queue.Dequeue()
+		if currentVertex.value == valSearched {
+			return currentVertex
+		}
+		for _, neighbor := range currentVertex.adjacents {
+			if !visited[neighbor] {
+				queue.Enqueue(neighbor)
+				visited[neighbor] = true
+			}
+		}
+	}
+	return nil
+}
+
+func shortestPath(startV, endV *cVertex) []string {
+	visited := make(map[*cVertex]bool)
+	visited[startV] = true
+
+	queue := queues.NewSliceQueue[*cVertex]()
+	queue.Enqueue(startV)
+	visited[startV] = true
+	previousVisitedVertexTable := make(map[string]string)
+
+	for queue.Read() != nil {
+		currentVertex := queue.Dequeue()
+		for _, eadge := range currentVertex.adjacents {
+			if !visited[eadge] {
+				previousVisitedVertexTable[eadge.value] = currentVertex.value
+				queue.Enqueue(eadge)
+				visited[eadge] = true
+			}
+		}
+	}
+
+	var shortestPath []string
+	currentVal := endV.value
+	for currentVal != startV.value {
+		shortestPath = append(shortestPath, currentVal)
+		currentVal = previousVisitedVertexTable[currentVal]
+	}
+	shortestPath = append(shortestPath, startV.value)
+
+	slices.Reverse(shortestPath)
+
+	return shortestPath
+}
