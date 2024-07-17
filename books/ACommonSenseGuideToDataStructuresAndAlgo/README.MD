@@ -247,3 +247,16 @@ Takes O (N log N)
 4. [bfsSearch](../../algo_data/graphs/all_connected_graph.go)
 5. [shortestPath](../../algo_data/graphs/all_connected_graph.go)
 
+### Chapter 19 exercises
+
+1. The wordBuilder code has space complexity of O(n), because the units of memory grow as the input data grow,
+this code only has O(n) space complexity because the code implementation creates a new array to implement the algorithm.
+2. The reverseArray code has space complexity of O(n), because the units of memory grow as the input data grow, 
+this code only has O(n) space complexity because the code implementation creates a new array to implement the algorithm.
+3. [reverse](../../algo_data/array/reverse.go)
+4.
+| Version | Time Complexity | Space Complexity |
+|---------|-----------------|------------------|
+| v1.0    | O(n)            | O(n)             |
+| v2.0    | O(n)            | O(1)             |
+| v3.0    | O(n)            | O(n)             |

@@ -115,6 +115,11 @@ func bfsSearch(vertex *cVertex, valSearched string) *cVertex {
 	return nil
 }
 
+// shortestPath for a unweight grapth we use BFS to stay close to starting vertex
+// and build a table where key is destination and value is source
+// so we can iterate over this table reversialy and get the final result by this table
+// this only works because BFS always stay close from startingVertex so we know that will be
+// the shortest path possiable
 func shortestPath(startV, endV *cVertex) []string {
 	visited := make(map[*cVertex]bool)
 	visited[startV] = true
