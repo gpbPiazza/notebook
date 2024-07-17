@@ -249,8 +249,7 @@ Takes O (N log N)
 
 ### Chapter 19 exercises
 
-1. The wordBuilder code has space complexity of O(n), because the units of memory grow as the input data grow,
-this code only has O(n) space complexity because the code implementation creates a new array to implement the algorithm.
+1. The wordBuilder code has space complexity of O(nˆ2), because the units of memory grow as the input data grow and we have a nasted foor loop inserting N elements in the new array.
 2. The reverseArray code has space complexity of O(n), because the units of memory grow as the input data grow, 
 this code only has O(n) space complexity because the code implementation creates a new array to implement the algorithm.
 3. [reverse](../../algo_data/array/reverse.go)
