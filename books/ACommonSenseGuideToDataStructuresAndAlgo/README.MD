@@ -259,3 +259,12 @@ this code only has O(n) space complexity because the code implementation creates
 | v1.0    | O(n)            | O(n)             |
 | v2.0    | O(n)            | O(1)             |
 | v3.0    | O(n)            | O(n)             |
+
+
+### Chapter 20 exercises
+
+1.[find_who_plays_in_both_sports](../../algo_data/array/find_common_players.go)
+2.[find_missing_int](../../algo_data/array/find_missing_int.go)
+3.[find_monst_profit](../../algo_data/array/find_the_most_proftiable_sell.go)
+4.[find_highest_product](../../algo_data/array/find_highest_product.go)
+5. 
