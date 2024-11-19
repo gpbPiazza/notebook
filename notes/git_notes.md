@@ -31,7 +31,7 @@ path pode ser um paht local para um repositório ou um link do github de um repo
 - .gitignore possuío vários patterns, *{algo} ignora todos algo, !{} negação do ignore, 
 por exemplo *.txt \n !vamogremio.txt ele irá ignorar todos arquivos txt exceto vamogremio.txt.
 /{alog} irá ignorar apenas no mesmo nível de diretório do .gitignore. Para mais pattrerns busque .gitignore patterns documentation
-
+- git reflog é o comando que guarda todas as ações feitas em uma branch, alterações não apenas de commits e sim de checkouts, pulls, reset e delete.
 
 ## Git reset with a commit in the middle of the branch
 I have a branch in this branch i have this cenário of commits when a use the command
@@ -50,3 +50,19 @@ Run git rebase -i HEAD~3.
 In the editor that appears, delete the line corresponding to commit B.
 Save and close the editor.
 This will remove commit B and keep commits A and C.
+
+## Git recover lost changes
+git reflog é o comando que guarda todas as ações feitas em uma branch
+```
+git reflog (find the commit sha at HEAD@{1})
+git cat-file -p <commit sha>
+git cat-file -p <tree sha>
+git cat-file -p <blob sha> > slander.md
+git add .
+git commit -m "B: recovery"
+```
+
+Or we can just do `git merge <commitish>`
+o commitish pode ser `(branch, tag, commit, HEAD@{1})`
+Então se nós executarmo `git reflog` pegar o ` HEAD@{1}` da mudanças que desejamos e executar
+`git merge  HEAD@{1}` nós iremos recuperar as mudanças do commit + o commit merge.
