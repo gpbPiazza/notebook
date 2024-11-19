@@ -31,3 +31,22 @@ path pode ser um paht local para um repositório ou um link do github de um repo
 - .gitignore possuío vários patterns, *{algo} ignora todos algo, !{} negação do ignore, 
 por exemplo *.txt \n !vamogremio.txt ele irá ignorar todos arquivos txt exceto vamogremio.txt.
 /{alog} irá ignorar apenas no mesmo nível de diretório do .gitignore. Para mais pattrerns busque .gitignore patterns documentation
+
+
+## Git reset with a commit in the middle of the branch
+I have a branch in this branch i have this cenário of commits when a use the command
+-> git log --oneline
+output: 
+hash-3 C 
+hash-2 B 
+hash-1 A
+
+I would like to remove the commit B, so I would do git reset --hard hash-2, but when I do this, git has removed the commit with message C, why this haapend?
+
+GitHub
+The command git reset --hard hash-2 resets your branch to the state of commit hash-2, which means the commits on top of hash-2 (in this case, commit C) are discarded. If you want to remove commit B without losing commit C, you should use an interactive rebase instead:
+
+Run git rebase -i HEAD~3.
+In the editor that appears, delete the line corresponding to commit B.
+Save and close the editor.
+This will remove commit B and keep commits A and C.
