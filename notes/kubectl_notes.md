@@ -5,7 +5,9 @@
 - `kubectl config get-contexts` -> lista todos os contexts configurados
 - `kubectl config get-clusters` -> lista todos os clusters configurados
 - `-n <namespace>` -> flag para colocar namespace que você está lidando no cluster.
-
+- `kubectl logs <pod-name> -n payment-api -f` -> comando para visualizar os logs de um pod, a flag `-f` mantem o terminal em real time com os logs, sem a flag ele apenas printa os logs do momento do comando
+- `kubectl logs <pod-name> --all-containers=true` -> irá listar todos os logs de todos so containers de um pod.
+- 
 ### Setup 
 
 ```zsh
