@@ -24,7 +24,12 @@ rebase não gera um novo commit. Rebase reescreve o histórico de commits.
 - git config --get pega valor de uma chave
 - git guara o conteúdo dos arquivos em binário, para ler o conteúdo é necessário ler por meio de um parse utf-8
 - git cat-file é um command que faz o parse do conteúdo de um binário para você, foneça a hash de um blob.
-- git reset --soft hash desfaz o commit e mantém as alterações staged(git add .)
+- git reset --soft hash, a hash que você passa é o index aonde o git irá parar de desfazer as mudanças, desfaz o commit e mantém as alterações staged(git add .)
+Exemplo:
+hash-A - 1
+hash-B - 2
+hash-C - 3
+`git reset --soft hash-C` irá desfazer os commits A e B, `git reset --soft hash-B` irá desfazer o commit A, `git reset --soft hash-A` não irá fazer nada pois, hash-A ja é sua HEAD.
 - git reset --hard hash desfaz o commit e deleta permanentemente as alterações
 - git remote add {nome_remote} {path} é o comando que define um repositório como remote(fonte da verdade), geralmente chamado de origin.
 path pode ser um paht local para um repositório ou um link do github de um repositório hospedado por um produto git.
@@ -32,6 +37,52 @@ path pode ser um paht local para um repositório ou um link do github de um repo
 por exemplo *.txt \n !vamogremio.txt ele irá ignorar todos arquivos txt exceto vamogremio.txt.
 /{alog} irá ignorar apenas no mesmo nível de diretório do .gitignore. Para mais pattrerns busque .gitignore patterns documentation
 - git reflog é o comando que guarda todas as ações feitas em uma branch, alterações não apenas de commits e sim de checkouts, pulls, reset e delete.
+- Use `git restore --staged .` to remove things from staged area(`git add .`), `git restore .` remove any change not staged
+- git revert will remove commits by creating a new commit to this new change, keeping the history of changes with out removing commits only moving forward. Use `git revert commit-hash` to revert until this specific commit
+- Use `git diff` to see the differences between commits and state of my code
+Examples:
+```bash
+# show the changes between the working tree and the last commit
+git diff
+
+# show the change between two commits
+git diff COMMIT_HASH_1 COMMIT_HASH_2
+
+# show the differences between the previous commit and the current state, including the last commit and uncommitted changes
+git diff HEAD~1
+```
+- Use `git cherry-pick {desire-commit-hash}` to get a specific commit from a branch and insert in you working branch
+
+## Git clean
+The command git clean -f -q -- /Users/olaisaac/projects/repos/src/megacorp/partner list is used to remove untracked files from the working directory. Here is a breakdown of the command:
+
+git clean: This is the Git command used to remove untracked files from the working directory.
+-f: This flag stands for "force". It is required to actually remove the files. Without this flag, git clean will not do anything.
+-q: This flag stands for "quiet". It suppresses the output of the command, so you won't see a list of the files that are being removed.
+--: This is used to separate the command options from the file path. It ensures that the file path is interpreted correctly.
+/Users/olaisaac/projects/repos/src/megacorp/partner list: This is the specific file or directory that you want to clean. In this case, it is the partner list file located in the specified path.
+So, this command will forcefully and quietly remove the untracked file partner list from the specified directory.
+
+## How to stash
+
+- Do some changes, no need to stage then
+- `git stash`git will save this changes on a index area where he will sync with your HEAD(last commit)
+- Use `git stash list` to see all stash that u have
+- Use `git stash pop` to get the most recent stash in the index stack(LIFO) and apply those changes into your working directory.
+- Use `git stash drop` will remove most recent stash
+- Use `git stash clear` will clean up every element of the stack.
+
+
+## How to Squash
+
+Perhaps confusingly, squashing is done with the git rebase command! Here are the steps to squash the last n commits:
+
+Start an interactive rebase with the command git rebase -i HEAD~n, where n is the number of commits you want to squash.
+Git will open your default editor with a list of commits. Change the word pick to squash for all but the first commit.
+Save and close the editor.
+The -i flag stands for "interactive," and it allows us to edit the commit history before Git applies the changes. HEAD~n is how we reference the last n commits. HEAD points to the current commit (as long as we're in a clean state) and ~n means "n commits before HEAD."
+
+In the list of commits the commits that you change to squash will be those commits that will be rebased onto the first commit with pick.
 
 ## Git reset with a commit in the middle of the branch
 I have a branch in this branch i have this cenário of commits when a use the command
@@ -43,7 +94,6 @@ hash-1 A
 
 I would like to remove the commit B, so I would do git reset --hard hash-2, but when I do this, git has removed the commit with message C, why this haapend?
 
-GitHub
 The command git reset --hard hash-2 resets your branch to the state of commit hash-2, which means the commits on top of hash-2 (in this case, commit C) are discarded. If you want to remove commit B without losing commit C, you should use an interactive rebase instead:
 
 Run git rebase -i HEAD~3.
