@@ -2,12 +2,20 @@
 
 - Kubectl possuí configs lá iremos setar a localização dos nossos cluters via contexts, logo:
 
+- Use `kubectl describe <source-name> -n <namespace>` -> to see the full infra yaml of the resource.
 - `kubectl config get-contexts` -> lista todos os contexts configurados
+- Use `kubectl config current-context` -> to know each context you are using now.
 - `kubectl config get-clusters` -> lista todos os clusters configurados
 - `-n <namespace>` -> flag para colocar namespace que você está lidando no cluster.
 - `kubectl logs <pod-name> -n payment-api -f` -> comando para visualizar os logs de um pod, a flag `-f` mantem o terminal em real time com os logs, sem a flag ele apenas printa os logs do momento do comando
 - `kubectl logs <pod-name> --all-containers=true` -> irá listar todos os logs de todos so containers de um pod.
-- 
+
+### Basic operations
+
+- Use `kubectl describe` to see full yaml of the resource
+- Use `kubectl get` to list the name of th resource
+-
+
 ### Setup 
 
 ```zsh

@@ -116,3 +116,34 @@ Or we can just do `git merge <commitish>`
 o commitish pode ser `(branch, tag, commit, HEAD@{1})`
 Então se nós executarmo `git reflog` pegar o ` HEAD@{1}` da mudanças que desejamos e executar
 `git merge  HEAD@{1}` nós iremos recuperar as mudanças do commit + o commit merge.
+
+## Git bisect
+
+That's where the git bisect command comes in. Instead of manually checking all the commits (O(n) for Big O nerds), 
+git bisect allows us to do a binary search (O(log n) for Big O nerds) to find the commit that introduced the bug.
+
+How to bisect 
+1. Start the bisect with `git bisect start`
+2. Select a "good" commit with `git bisect good <commitish>` (a commit where you're sure the bug wasn't present)
+3. Select a bad commit via `git bisect bad <commitish>` (a commit where you're sure the bug was present)
+4. Git will checkout a commit between the good and bad commits for you to test to see if the bug is present
+5. Execute `git bisect good` or `git bisect bad` to say the current commit is good or bad
+6. Loop back to step 4 (until git bisect completes)
+7. Exit the bisect mode with `git bisect reset`
+
+During the state of `git bisect` your current working directory will be at the commit to choose bad or good, 
+so you can run you tests or run your local system to tests de commit
+
+You can execute a script where exit 1 or 0 will say if the analised commit is bad(1) ou good(0).
+Run `git bisect start`
+Mark a commit as bad
+Mark a commit as good
+Automate the rest of the bisect with `git bisect run <some-scricpt.sh>`
+
+
+## What Is a Worktree?
+A worktree (or "working tree" or "working directory") is just the directory on your filesystem where the code you're tracking with Git lives. 
+Usually, it's just the root of your Git repo (where the .git directory is). It contains:
+- Tracked files (files that Git knows about)
+- Untracked files (files that Git doesn't know about)
+- Modified files (files that Git knows about that have been changed since the last commit)
