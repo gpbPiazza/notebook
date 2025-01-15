@@ -21,7 +21,7 @@ possible error recovery methods. Protocols may be implemented by hardware, softw
 - HTTP is a Request and Response based system, where the client sends a message is called request and
 whenever the server sends a message to the client is called response.
 
-![request-response-diagram](image.png)
+![request-response-diagram](./assets/request_response.png)
 
 ### Uniform Resources Locators (URL)
 
@@ -32,9 +32,9 @@ whenever the server sends a message to the client is called response.
 
 - A URL are composed of different parts, some required and others optional.
 
-![url-format](image-1.png)
+![url-format](./assets/uri_scheme.png)
 
-![full-url-format](image-2.png)
+![full-url-format](./assets/uri_full_scheme.png)
 
 <strong>SCHEME</strong>
 - Is required and represents the protocol that will be used by the internet or browser.
