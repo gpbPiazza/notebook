@@ -1,14 +1,11 @@
 # Notes
 
-
-### O que aprendi?
-
 general - commands
 - comando cat le conteúdo de arquivos, posso contenar resultados de arquivos ou até mesmo juntar eles em um só.
 - echo "conteúod" > arquivo sobreescreve o conteúdo do arquivo com a string passada >> apenas faz um append.
 - ! o terminal entende como um sinal de expansão dentro de uma string, você pode evitar esse sinal usando single quotes ''
 
-git 
+#### git 
 - git possuí escopo de sistema, global, local, working tree cada escopo sobreescreve o git config de cada.
 - git tree meio de guardar diretórios do git
 - git blob meio de guardar arquivos do git
@@ -52,6 +49,11 @@ git diff COMMIT_HASH_1 COMMIT_HASH_2
 git diff HEAD~1
 ```
 - Use `git cherry-pick {desire-commit-hash}` to get a specific commit from a branch and insert in you working branch
+
+- Use `git tag -a "<version>" -m "<description version>"` to create a tag
+- Use `git push origin --tags` to publish in the remote repository the local tags
+- Use `git tag` to list all local tags
+
 
 ## Git clean
 The command git clean -f -q -- /Users/olaisaac/projects/repos/src/megacorp/partner list is used to remove untracked files from the working directory. Here is a breakdown of the command:

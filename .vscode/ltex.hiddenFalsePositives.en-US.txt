@@ -26,3 +26,14 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe algorithm show iterates in the array one time and inside the first foor loop do another iteration having this implementation will result in O(Nˆ2) time complexity.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QO(n)\nO(n)\nO(n)*O(nˆ(1/2)) = O(nˆ(3/2)) simplifying we would have O(nˆ2)\nChapter 6 exercises\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor N+logN steps would be O(n) same response from question 1.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QHypertext Transfer Protocol (http)\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qrequest-response-diagram\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qor hyphen -\nSchemes are case-insentive.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qurl-format\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QConsisting of a sequence of characters beginning with a letter and follwer by any combination of letters, digits, plus +, period .\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qor hyphen -\nSchemes are case-insentive.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QConsisting of a sequence of characters beginning with a letter and follwed by any combination of letters, digits, plus +, period .\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QExample of popular schemes(protocols) http, https, ftp, mailto, file and data.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QSchemes should be registered with the Internet pAssigned Numbers Authority (IANA),\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QConsisting of a sequence of characters beginning with a letter and followed by any combination of letters, digits, plus +, period .\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qfull-url-format\\E$"}
