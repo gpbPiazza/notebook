@@ -18,8 +18,7 @@ possible error recovery methods. Protocols may be implemented by hardware, softw
 ## Hypertext Transfer Protocol (HTTP)
 
 ### Request and Response
-- HTTP is a Request and Response based system, where the client sends a message is called request and
-whenever the server sends a message to the client is called response.
+- HTTP is a Request and Response based system, where the client sends a message is called request and whenever the server sends a message to the client is called response.
 
 ![request-response-diagram](./assets/request_response.png)
 
@@ -28,7 +27,7 @@ whenever the server sends a message to the client is called response.
 - URLs are address of a unique resource on the internet. Each URL points to a resource(server) that represents a server on some computer somewhere on internet.
 - A URL is a type of URI (Uniform Resource Identifier). URIs identify and URLs locate; however, locators are also identifiers, so every URL is also a URI, but there are URIs which are not URLs.
 
-#### URL format
+#### URL format (incomplete)
 
 - A URL are composed of different parts, some required and others optional.
 
@@ -40,4 +39,28 @@ whenever the server sends a message to the client is called response.
 - Is required and represents the protocol that will be used by the internet or browser.
 - Format: <scheme:> or <protocol_name:>. Consisting of a sequence of characters beginning with a letter and followed by any combination of letters, digits, plus +, period . or hyphen -
 - Schemes are case-insentive.
-- Example of popular schemes(protocols) http, https, ftp, mailto, file and data. Schemes should be registered with the Internet p[Assigned Numbers Authority](https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority) (IANA), 
+- Example of popular schemes(protocols) http, https, ftp, mailto, file and data. Schemes should be registered with the Internet [Assigned Numbers Authority](https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority) (IANA), 
+
+<strong>DOMAIN NAME/USERINFO</strong>
+- TODO
+
+<strong>PORT</strong>
+- TODO
+
+<strong>PATH</strong>
+- TODO
+
+<strong>PARAMETERS/QUERY</strong>
+- TODO
+
+<strong>ANCHOR/FRAGMENT</strong>
+- TODO
+
+#### Domain Name System (DNS)
+
+Domain name is human-readable of an IP address.
+
+In computing, web clients find other computers over the internet using Internet Protocol (IP) addresses. Each device connected to the internet has a unique IP address.
+
+![Domain-ip](./assets/domain_ip.png)
+
