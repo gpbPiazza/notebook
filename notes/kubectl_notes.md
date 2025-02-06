@@ -5,11 +5,13 @@
 - Use `kubectl describe <source-name> -n <namespace>` -> to see the full infra yaml of the resource.
 - `kubectl config get-contexts` -> lista todos os contexts configurados
 - Use `kubectl config current-context` -> to know each context you are using now.
-- `kubectl config get-clusters` -> lista todos os clusters configurados
-- `-n <namespace>` -> flag para colocar namespace que você está lidando no cluster.
-- `kubectl logs <pod-name> -n payment-api -f` -> comando para visualizar os logs de um pod, a flag `-f` mantem o terminal em real time com os logs, sem a flag ele apenas printa os logs do momento do comando
-- `kubectl logs <pod-name> --all-containers=true` -> irá listar todos os logs de todos so containers de um pod.
+- Use `kubectl config get-clusters` -> lista todos os clusters configurados
+- Use `-n <namespace>` -> flag para colocar namespace que você está lidando no cluster.
+- Use `kubectl logs <pod-name> -n payment-api -f` -> comando para visualizar os logs de um pod, a flag `-f` mantem o terminal em real time com os logs, sem a flag ele apenas printa os logs do momento do comando
+- Use `kubectl logs <pod-name> --all-containers=true` -> irá listar todos os logs de todos so containers de um pod.
 - Use `kubectl rollout restart deployment <nome-do-deployment> -n <nome-do-namespace>` to restart all pods from a deployment
+- Use `kubectl scale <statefulset || deployment || job> <resource_name> --replicas=1 -n <name_space>` -> to scale up or down resources.
+- Use `kubectl exec -it <pod_name> -- /bin/sh` -> to connect in pod shell if the pod use `sh` if he uses bash change to `/bin/bash`.
 ### Basic operations
 
 - Use `kubectl describe` to see full yaml of the resource
@@ -17,8 +19,10 @@
 -
 
 ### Setup 
+-  Use `gcloud container clusters get-credentials production-gke-cluster --region=<region> --project <gcp_project> && \
+  kubectl config rename-context "<cluster_name>" "old-gke-production"` ->   This command config a new ./kube/confg
 
-```zsh
+```sh
 ############################################################
 # Adiciona contexto do Kubernetes para o cluster solicitado.
 # Arguments:
