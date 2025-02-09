@@ -1,4 +1,4 @@
-# Notes
+# Hypertext Transfer Protocol (HTTP) Notes 
 
 [RFC → Official Internet Protocol Standards](https://www.rfc-editor.org/standards)
 
@@ -13,7 +13,7 @@ https://en.wikipedia.org/wiki/URL
 - Is like to humans speaking each other, if both speak in Brazilian Portuguese the communication protocol is Brazilian Portuguese.
 
 
-## Hypertext Transfer Protocol (HTTP)
+## Usage overview
 
 #### Request and Response
 - HTTP is a Request and Response based system, where the client sends a message is called request and whenever the server sends a message to the client is called response.
@@ -105,3 +105,20 @@ IP are for computers.
 `300-399`: Redirection messages. These are typically invisible because the browser or HTTP client will automatically do the redirect.
 `400-499`: Client errors. You'll see these often, especially when trying to debug a client application
 `500-599`: Server errors. You'll see these sometimes, usually only if there is a bug on the server.
+
+## Low level implementation
+
+A http server creates a socket, binds this sockect to the given port and opens to listen any IP that desires to bind to that socket.
+
+Once the client sended a request, the client sockect is binded to the server sockect, after that we can say we have a connection stablish, then the server perform the request and reply the response to the client.
+
+
+A socket has a typical flow of events. In a connection-oriented client-to-server model, 
+1. the socket on the server process waits for requests from a client.
+2. To do this, the server first establishes (binds) an address(IP) that clients can use to find the server. 
+3. When the address is established, the server waits for clients to request a service. 
+4. The client-to-server data exchange takes place when a client connects to the server through a socket. 
+5. The server performs the client's request and sends the reply back to the client.
+
+![sockect-events-sequence-digram](./assets/sockects_event_sequence.png)
+
