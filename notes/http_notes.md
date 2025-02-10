@@ -2,15 +2,17 @@
 
 [RFC → Official Internet Protocol Standards](https://www.rfc-editor.org/standards)
 
+Abstract
 
-Keep reading →
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
-https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL
-https://en.wikipedia.org/wiki/URL
+The Hypertext Transfer Protocol (HTTP) is an application-level
+protocol with the lightness and speed necessary for distributed, collaborative, hypermedia information systems. It is a ***generic***, ***stateless***, ***object-oriented*** protocol which can be used for many tasks, such as name servers and distributed object management systems, through extension of its request methods (commands). A feature of HTTP is the typing of data representation, allowing systems to be built independently of the data being transferred.
 
-## Protocol
-- A communication protocol is a conjunction of rules that allows two or more entities of a communication system to transmit information. The protocol defines the rules, syntax, semantics, and synchronization of communication and possible error recovery methods. Protocols may be implemented by hardware, software or a combination of both.
-- Is like to humans speaking each other, if both speak in Brazilian Portuguese the communication protocol is Brazilian Portuguese.
+
+TODO -> remember
+
+- HTTP uses MIME(Multipurpose Internet Mail Extensions) definition, Describing the Format of Internet Message Bodies with some changes between the literally MIME and the bodies used to serialize data in HTTP protocol.
+
+- Leitura da RFC http 1.0 paramos -> https://www.rfc-editor.org/rfc/rfc1945.html#section-3
 
 
 ## Usage overview
