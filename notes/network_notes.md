@@ -23,3 +23,21 @@ In the OSI reference model, the communications between systems are split into se
 graph TD;
     zap --> application;
 ```
+
+
+---
+
+#### TCP
+
+#### UDP
+
+- User Datagram Protocol is a transpor layer protocol. 
+
+Ready more -> https://en.wikipedia.org/wiki/User_Datagram_Protocol
+
+|                | TCP	| UDP |
+| ---------------|------|-----|
+| Connection     | Yes	|  No |
+| Handshake	     | Yes	|  No |
+| In Order	     | Yes	|  No |
+| Blazingly Fast | No	|  Yes|
