@@ -12,6 +12,7 @@
 - Use `kubectl rollout restart deployment <nome-do-deployment> -n <nome-do-namespace>` to restart all pods from a deployment
 - Use `kubectl scale <statefulset || deployment || job> <resource_name> --replicas=1 -n <name_space>` -> to scale up or down resources.
 - Use `kubectl exec -it <pod_name> -- /bin/sh` -> to connect in pod shell if the pod use `sh` if he uses bash change to `/bin/bash`.
+- Use `kubectl get configmap || cm` -> to list all configmaps of the cluster, you also can use `kubectl get configmap <config-map-name> -n <namespace> -o yaml` -> to see all his values in yaml
 ### Basic operations
 
 - Use `kubectl describe` to see full yaml of the resource

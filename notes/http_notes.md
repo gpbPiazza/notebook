@@ -124,3 +124,16 @@ A socket has a typical flow of events. In a connection-oriented client-to-server
 
 ![sockect-events-sequence-digram](./assets/sockects_event_sequence.png)
 
+
+
+## HTTP/2
+Some key differences include:
+
+It's a binary protocol rather than text-based. This makes it more efficient and less error-prone, but also requires more steps to debug, typically.
+HTTP/2 uses multiplexing, which allows multiple requests and responses to be sent over a single connection at the same time. This reduces latency and improves performance.
+Uses header compression to save on header bandwidth.
+Allows for server push, which lets the server send resources to the client before they are requested.
+
+## HTTP/3
+Built on QUIC instead of TCP. QUIC is a transport layer protocol that runs over UDP, which allows for faster connection establishment and improved performance.
+Mandates encryption at the HTTP protocol level (HTTP/1.1 is unencrypted by default, meaning it requires HTTPS to be secure).
