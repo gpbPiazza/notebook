@@ -86,6 +86,16 @@ The -i flag stands for "interactive," and it allows us to edit the commit histor
 
 In the list of commits the commits that you change to squash will be those commits that will be rebased onto the first commit with pick.
 
+
+## Git rebease onto top of the other branch
+
+```bash
+git checkout branch-with-extract-coomits
+git rebase --onto base-branch branch-with-extract-coomits^
+git push -f
+```
+- the `^` indicates to rebase brranch with extract commits onto of the base branch, more info here https://stackoverflow.com/questions/29914052/how-to-git-rebase-a-branch-with-the-onto-command
+
 ## Git reset with a commit in the middle of the branch
 I have a branch in this branch i have this cenário of commits when a use the command
 -> git log --oneline
