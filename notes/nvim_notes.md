@@ -9,7 +9,7 @@
 
 
 ## VISUAL MODE
-- `v` -> start visual mode
+- `v` -> start visual mod 
 - `esc` -> back to normal
 - copy and past: `y` yanks the text `p` to paste 
 - 
@@ -18,4 +18,5 @@
 
 - `j` -> down 
 - `g` -> up
-
+- `shift + l`  → go to next buffer tab
+- `shift + h` → go to previous buffer tab
