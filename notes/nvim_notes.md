@@ -30,11 +30,10 @@
 - `u` -> undo changes
 - `d+d` -> delete the current line
 - `shift + v` -> start visual mode(select many words) 
-
-preciso aprender a:
-- Go to definitions
-- Go to implementation
-- Find references
-
+- `shift + k` -> show type information
+- `g+d` -> go to definition
+- `g+r` -> go to reference
+- `shift+k` -> Hover documentation
+- `<leader>+l+r` -> Rename symbol and update all references
 - `shift + l`  → go to next buffer tab
 - `shift + h` → go to previous buffer tab
