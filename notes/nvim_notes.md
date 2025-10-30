@@ -41,3 +41,7 @@
 - `g+c+c` -> toggle comment code
 - How to ctrl x + ctrl + v -> select the text with `V` or `ctrl + V` then -> `d + d` this will delete the text and move to the yonk buffer -> user `p` to paste after cursor or `P` before.
 - `V + y` → yank a block
+- `ctrl + o` -> Go back in cursor NAVIGATION
+- `ctrl + i` -> Go forward in cursor NAVIGATION
+
+
