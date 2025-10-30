@@ -30,10 +30,14 @@
 - `u` -> undo changes
 - `d+d` -> delete the current line
 - `shift + v` -> start visual mode(select many words) 
-- `shift + k` -> show type information
 - `g+d` -> go to definition
 - `g+r` -> go to reference
 - `shift+k` -> Hover documentation
-- `<leader>+l+r` -> Rename symbol and update all references
+- `]+d` -> go to next error
+- `[+d` -> go to previous
+- `<leader>+b+d` -> close current file
 - `shift + l`  → go to next buffer tab
 - `shift + h` → go to previous buffer tab
+- `g+c+c` -> toggle comment code
+- How to ctrl x + ctrl + v -> select the text with `V` or `ctrl + V` then -> `d + d` this will delete the text and move to the yonk buffer -> user `p` to paste after cursor or `P` before.
+- `V + y` → yank a block
