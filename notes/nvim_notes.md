@@ -43,5 +43,7 @@
 - `V + y` → yank a block
 - `ctrl + o` -> Go back in cursor NAVIGATION
 - `ctrl + i` -> Go forward in cursor NAVIGATION
+- `<leader>+c+r` -> rename a variale+method
+- Create a file you can -> Go to folder tree -> `<leader> + e` -> put the cursor in the folder you want the new file -> `a` 
 
 
