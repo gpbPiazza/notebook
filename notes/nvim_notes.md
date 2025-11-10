@@ -32,6 +32,7 @@
 - `shift + v` -> start visual mode(select many words) 
 - `g+d` -> go to definition
 - `g+r` -> go to reference
+- `g+I` -> go to implementation
 - `shift+k` -> Hover documentation
 - `]+d` -> go to next error
 - `[+d` -> go to previous
@@ -43,7 +44,7 @@
 - `V + y` → yank a block
 - `ctrl + o` -> Go back in cursor NAVIGATION
 - `ctrl + i` -> Go forward in cursor NAVIGATION
-- `<leader>+c+r` -> rename a variale+method
+- `<leader>+c+r` -> rename a variable + method
 - Create a file you can -> Go to folder tree -> `<leader> + e` -> put the cursor in the folder you want the new file -> `a` 
-
+- `d+a+w`
 
