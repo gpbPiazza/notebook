@@ -10,4 +10,4 @@
 - `SUPER + SHIFT + (1...5)` = in the current window will move the window shortcut access to the `SUPER + NUMBER` clicked. Example: terminal is on `SUPER + 1` you want him in `SUPER + 5`, you will go to the terminal window + `SUPER + SHIFT + 5`.
 - `SUPER + arrow` = change the selected if has more than one app open in the session.
 - `SHIFT + f11` = full screen current session
-
+- SUPER + <-> or <+> = resize the current window
