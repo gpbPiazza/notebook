@@ -47,4 +47,6 @@
 - `<leader>+c+r` -> rename a variable + method
 - Create a file you can -> Go to folder tree -> `<leader> + e` -> put the cursor in the folder you want the new file -> `a` 
 - `d+a+w`
-
+- `<leader>db` -> Debugger toggle breakpoint
+- `<leader>dt>` -> Debug the nearest test from cursor
+- `<leader>sg` -> find string in the repository
