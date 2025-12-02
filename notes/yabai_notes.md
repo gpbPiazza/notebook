@@ -1,3 +1,15 @@
+# if you find not working the commands to move windows this comments fixed the issue 
+```
+
+`
+pkill Dock
+sudo yabai --load-sa
+`
+```
+# to se log errors
+tail -f /tmp/yabai_$USER.err.log
+tail -f /tmp/yabai_$USER.out.log
+
 # change window focus within space
 alt - j : south
 alt - k : north

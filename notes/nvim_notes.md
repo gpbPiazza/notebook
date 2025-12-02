@@ -50,3 +50,4 @@
 - `<leader>db` -> Debugger toggle breakpoint
 - `<leader>dt>` -> Debug the nearest test from cursor
 - `<leader>sg` -> find string in the repository
+- `ctrl + v` -> visual vertical mode (util to change alot rows)
