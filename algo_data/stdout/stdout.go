@@ -2,6 +2,7 @@ package stdout
 
 import (
 	"io"
+	"log"
 	"os"
 )
 
@@ -11,7 +12,11 @@ func String(f func()) string {
 	os.Stdout = writer
 	f()
 	os.Stdout = original
-	writer.Close()
+
+	err := writer.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	result, _ := io.ReadAll(reader)
 	return string(result)
