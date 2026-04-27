@@ -153,6 +153,98 @@ Mark a commit as good
 Automate the rest of the bisect with `git bisect run <some-scricpt.sh>`
 
 
+## Git Rebase --onto (rebasing a chain of branches)
+
+### The problem
+
+When you create a feature branch (B) off another feature branch (A), and branch A gets squash-merged into `dev`, rebasing B onto `dev` causes conflicts. Why? Because `git rebase dev` replays **all** commits from B — including the ones from branch A that are already on `dev` (via the squash merge). Git doesn't know they're the same work, so every shared commit conflicts.
+
+```
+Before squash merge:
+dev:  D1 - D2
+        \
+  A:     A1 - A2 - A3
+                      \
+  B:                   B1 - B2 - B3
+```
+
+After branch A is squash-merged into dev:
+```
+dev:  D1 - D2 - A(squashed)
+        \
+  A:     A1 - A2 - A3
+                      \
+  B:                   B1 - B2 - B3
+```
+
+Running `git rebase dev` on B tries to replay A1, A2, A3, B1, B2, B3 onto dev — but dev already has A1+A2+A3 as a single squash commit. Conflicts on every A commit.
+
+### The solution: `git rebase --onto`
+
+```bash
+git rebase --onto <new-base> <old-base> <branch>
+```
+
+The three parameters:
+- **new-base**: the commit to replay onto (destination foundation)
+- **old-base**: exclusive start — commits **after** this get replayed
+- **branch**: inclusive end — commits **up to** this get replayed. This branch pointer also gets moved to the result
+
+It means: "take the range `(old-base, branch]` and replay it onto `new-base`."
+
+### Practical example
+
+```bash
+git rebase --onto dev gabriel.piazza/ing-66 gabriel.piazza/ing-63
+```
+
+- **new-base** = `dev` → the 18 BOAT commits will sit on top of dev's tip
+- **old-base** = `ing-66` → skip everything up to and including this commit (all the CUMBR work)
+- **branch** = `ing-63` → replay commits from after ing-66 up to ing-63 (only the BOAT commits), then move the ing-63 branch pointer to the result
+
+Result:
+```
+Before:
+dev:    D1 - D2 - A(squashed)
+ing-63: A1 - A2 - A3 - B1 - B2 - B3
+
+After:
+dev:    D1 - D2 - A(squashed)
+                              \
+ing-63:                        B1' - B2' - B3'
+```
+
+Zero conflicts because the BOAT commits (B1-B3) never touched the same code as the squash-merged CUMBR work.
+
+### Key detail: branch names are commit pointers
+
+Branch names, tags, and commit hashes are all interchangeable in git commands. These are equivalent:
+
+```bash
+git rebase --onto dev gabriel.piazza/ing-66 gabriel.piazza/ing-63
+git rebase --onto 38ede4c15 7df9c3b20 951d758ad
+```
+
+Git resolves branch names to the commit SHA they point to.
+
+### Comparison with regular rebase
+
+A normal `git rebase dev` is shorthand for:
+
+```bash
+git rebase --onto dev <merge-base> <current-branch>
+```
+
+Where `<merge-base>` is the common ancestor of `dev` and your branch, computed automatically. The problem is when that common ancestor is way back before the shared work — git replays everything including already-merged commits. With `--onto` you override the start point manually.
+
+### When to use --onto
+
+Use `git rebase --onto` when:
+1. You branched off a feature branch that was later **squash-merged** into the base branch
+2. You want to rebase only your unique commits, skipping the ones already merged
+3. You need to "transplant" a range of commits from one base to another
+
+
 ## What Is a Worktree?
 A worktree (or "working tree" or "working directory") is just the directory on your filesystem where the code you're tracking with Git lives. 
 Usually, it's just the root of your Git repo (where the .git directory is). It contains:
